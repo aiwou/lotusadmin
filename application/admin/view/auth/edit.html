@@ -2,8 +2,8 @@
 <body>
     <style media="screen" type="text/css">
         header {
-    color: black;
-}
+            color: black;
+        }
     </style>
     <div class="x-body">
         <form action="edit" class="layui-form" id="mainForm" method="post" style="margin-right: 20px;">
@@ -106,7 +106,7 @@
 		      title: '最终的提交信息'
 		    })
 		    return false;
-		  });
+		});
 	$(document).ready(function(){ 
 	     var options = {
 		      type:'post',           //post提交
@@ -122,7 +122,7 @@
     		      	if(data.code==0){
     		      		layer.msg(data.msg);
     		      	}else{
-    		      		layer.msg(data.msg,{icon:1},function(){
+    		      		layer.msg(data.msg,{icon:1,time:1000},function(){
     		      			$("#reset").click();
     		      			x_admin_close();
     		      			parent.location.reload();

@@ -49,7 +49,7 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
-        if($id<5){
+        if($id<10){
             $this->error('很抱歉,系统默认权限无法编辑');
         }
         $validate = validate('auth');
@@ -70,16 +70,23 @@ class auth extends Main
         $juge = Db::name('auth_rule')
             ->where('pid',$id)
             ->find();
+<<<<<<< HEAD
         if($id<7){
                  $this->error('重要节点无法删除'); 
         }
+=======
+       
+>>>>>>> 8b29afb9e533cbe7191e09cfb6499b3d92ee2e95
         if(!empty($juge)){ 
                 $this->error('请先删除子权限'); 
         }else{
-
-            Db::name('auth_rule')
-            ->delete($id);
-            $this->success('success');
+            if($id<10){
+                 $this->error('重要节点无法删除'); 
+            }else{
+                 Db::name('auth_rule')
+                    ->delete($id);
+                    $this->success('success');
+            }
         }
     }
     function showRole(){
@@ -132,13 +139,16 @@ class auth extends Main
     {
         if ($this->request->isPost()){
             $post = $this->request->post();
-                $group_data['id']    = $post['id'];
-                $group_data['rules'] = is_array($post['auth_rule_ids']) ? implode(',', $post['auth_rule_ids']) : '';
-                if (Db::name('auth_group')->where('id',$post['id'])->update($group_data) !== false) {
-                    $this->success('授权成功');
-                } else {
-                    $this->error('授权失败');
-                }
+            if($post['id']==1){
+               $this->error('超级管理员信息无法编辑'); 
+            }
+            $group_data['id']    = $post['id'];
+            $group_data['rules'] = is_array($post['auth_rule_ids']) ? implode(',', $post['auth_rule_ids']) : '';
+            if (Db::name('auth_group')->where('id',$post['id'])->update($group_data) !== false) {
+                $this->success('授权成功');
+            } else {
+                $this->error('授权失败');
+            }
         }
     }
     function showRoleEdit($id){
@@ -149,7 +159,9 @@ class auth extends Main
     }
     function editRole(){
         $post = $this->request->post();
-
+        if($post['id']==1){
+           $this->error('超级管理员信息无法编辑'); 
+        }
         $validate = validate('role');
         $res = $validate->check($post);
         if(!$res){
