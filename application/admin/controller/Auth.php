@@ -70,13 +70,9 @@ class auth extends Main
         $juge = Db::name('auth_rule')
             ->where('pid',$id)
             ->find();
-<<<<<<< HEAD
         if($id<7){
                  $this->error('重要节点无法删除'); 
         }
-=======
-       
->>>>>>> 8b29afb9e533cbe7191e09cfb6499b3d92ee2e95
         if(!empty($juge)){ 
                 $this->error('请先删除子权限'); 
         }else{
