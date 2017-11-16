@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
-Source Server Version : 50505
-Source Host           : localhost:3306
+Source Server         : lotus
+Source Server Version : 50557
+Source Host           : 122.152.192.48:3306
 Source Database       : lotus
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50557
 File Encoding         : 65001
 
-Date: 2017-11-02 17:21:17
+Date: 2017-11-16 20:00:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,6 +48,9 @@ CREATE TABLE `sm_api` (
   `method` varchar(10) DEFAULT NULL,
   `is_token` varchar(255) DEFAULT '0',
   `app_id` int(11) DEFAULT NULL,
+  `param` varchar(255) DEFAULT NULL,
+  `key` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -56,15 +59,7 @@ CREATE TABLE `sm_api` (
 -- ----------------------------
 -- Records of sm_api
 -- ----------------------------
-INSERT INTO `sm_api` VALUES ('26', 'sadasd', 'https://b.com', '17RACPHBVSBY249DNQYJQ64NL', 'get', '0', '14924215', '1509592427', '1509592427');
-INSERT INTO `sm_api` VALUES ('27', 'sadasdasd', 'https://b.com', 'B2MX95XZHLPYSIGJN4NPFLZDG', 'post', '0', null, '1509610234', '1509610234');
-INSERT INTO `sm_api` VALUES ('28', 'sadasdasd', 'https://b.com', 'B2MX95XZHLPYSIGJN4NPFLZDG', 'post', '0', null, '1509610321', '1509610321');
-INSERT INTO `sm_api` VALUES ('29', 'sadasd', 'https://b.com', '17RACPHBVSBY249DNQYJQ64NL', 'get', '0', null, '1509610325', '1509610325');
-INSERT INTO `sm_api` VALUES ('30', 'sadasd', 'https://b.com', '17RACPHBVSBY249DNQYJQ64NL', 'get', '0', null, '1509610329', '1509610329');
-INSERT INTO `sm_api` VALUES ('31', 'sadasd', 'https://b.com', '17RACPHBVSBY249DNQYJQ64NL', 'get', '0', null, '1509610340', '1509610340');
-INSERT INTO `sm_api` VALUES ('32', 'sadasdasd', 'https://b.com', 'B2MX95XZHLPYSIGJN4NPFLZDG', 'post', '0', null, '1509610345', '1509610345');
-INSERT INTO `sm_api` VALUES ('33', 'sadasd', 'https://b.com', '17RACPHBVSBY249DNQYJQ64NL', 'get', '0', null, '1509610348', '1509612595');
-INSERT INTO `sm_api` VALUES ('34', 'sadasdasd', 'https://b.com', 'B2MX95XZHLPYSIGJN4NPFLZDG', 'post', '0', null, '1509610622', '1509612409');
+INSERT INTO `sm_api` VALUES ('26', 'demo', 'https://www.wen2b.com/index/index/testpost', '17RACPHBVSBY249DNQYJQ64NL', 'post', '1', '14924215', 'id:1|name:jack', '123', '123', '1509592427', '1510832161');
 
 -- ----------------------------
 -- Table structure for sm_app
@@ -79,7 +74,7 @@ CREATE TABLE `sm_app` (
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `app_id` (`app_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sm_app
@@ -126,7 +121,7 @@ CREATE TABLE `sm_auth_group` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `rules` varchar(255) NOT NULL COMMENT '权限规则ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='权限组表';
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COMMENT='权限组表';
 
 -- ----------------------------
 -- Records of sm_auth_group
@@ -135,21 +130,9 @@ INSERT INTO `sm_auth_group` VALUES ('1', '超级管理组', '1', '1,2,3,103');
 INSERT INTO `sm_auth_group` VALUES ('2', '普通用户', '0', '1,2,3,103,101,102');
 INSERT INTO `sm_auth_group` VALUES ('34', 'dasfdsf', '1', '');
 INSERT INTO `sm_auth_group` VALUES ('35', 'asfsadf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('36', 'asfasdf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('37', 'asfasd', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('38', 'adsf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('39', 'dfgdfg', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('40', 'fdtghgfdh', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('41', 'fcbvf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('42', 'dfgcvb', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('43', 'cvbcvb', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('44', 'zvxcv', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('45', 'zxczxc', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('46', 'xcvxcv', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('47', 'xcvxcvasdsadc', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('48', 'sadzxc', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('49', 'sczxcxzc', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('50', 'sadasd', '1', '');
+INSERT INTO `sm_auth_group` VALUES ('38', 'adsf', '1', '1,2,3,4,5,6,7,8');
+INSERT INTO `sm_auth_group` VALUES ('52', 'test', '1', '');
+INSERT INTO `sm_auth_group` VALUES ('53', 'test1', '1', '');
 
 -- ----------------------------
 -- Table structure for sm_auth_group_access
@@ -187,7 +170,7 @@ CREATE TABLE `sm_auth_rule` (
   `condition` char(100) DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=112 DEFAULT CHARSET=utf8 COMMENT='规则表';
+) ENGINE=MyISAM AUTO_INCREMENT=113 DEFAULT CHARSET=utf8 COMMENT='规则表';
 
 -- ----------------------------
 -- Records of sm_auth_rule
@@ -196,7 +179,7 @@ INSERT INTO `sm_auth_rule` VALUES ('1', 'admin/user/default', '用户管理', '1
 INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '1', '1', '1', '3', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '4', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('4', 'admin/auth/showRole', '角色列表', '1', '1', '1', '5', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('8', 'admin/api/list', '接口仓库', '1', '1', '7', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('8', 'admin/api/app_list', '接口仓库', '1', '1', '7', '', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('5', 'admin/db_manage/default', '数据库', '1', '1', '0', 'fa', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('6', 'admin/db_manage/index', '优化', '1', '1', '5', 'fa', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', '', '0', '');
@@ -339,5 +322,4 @@ CREATE TABLE `sm_user` (
 -- ----------------------------
 -- Records of sm_user
 -- ----------------------------
-INSERT INTO `sm_user` VALUES ('27', 'wenhainande', '121144d6c3114c583415f06860ad3710', '', 'whnde@qc.com', '1', '2017-09-26 05:28:15', null, '0.0.0.0');
-INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2017-11-02 09:29:45', '127.0.0.1');
+INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2017-11-16 07:35:12', '111.199.184.17');
