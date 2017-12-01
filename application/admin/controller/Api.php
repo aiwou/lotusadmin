@@ -104,11 +104,10 @@ class api extends Main
  	function delete_api(){
  		$id = $this->request->post('id');
  		$model  = new ApiModel();
-    	
-	if($id==1){
-		$this->error('forbidden  delete because of  test data ');
-	}
-        ApiModel::destroy($id);
+ 		if($id==1){
+ 			$this->error('测试数据,禁止删除');
+ 		}
+    	ApiModel::destroy($id);
     	$this->success('delete success');
  	}
 
