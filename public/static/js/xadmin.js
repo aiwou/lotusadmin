@@ -133,8 +133,11 @@ $(function () {
     w       弹出层宽度（缺省调默认值）
     h       弹出层高度（缺省调默认值）
 */
-function x_admin_show(title,url,w,h,offset=100){
-    if (title == null || title == '') {
+function x_admin_show(title,url,w,h,offset){
+    if(offset==null||offset==''){
+        offset = 100;
+    }
+    if (title == null || title == ''){
         title=false;
     };
     if (url == null || url == '') {
