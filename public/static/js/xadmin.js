@@ -133,7 +133,7 @@ $(function () {
     w       弹出层宽度（缺省调默认值）
     h       弹出层高度（缺省调默认值）
 */
-function x_admin_show(title,url,w,h,offset=100){
+function x_admin_show(title,url,w,h){
     if (title == null || title == '') {
         title=false;
     };
@@ -147,7 +147,7 @@ function x_admin_show(title,url,w,h,offset=100){
         h=($(window).height() - 50);
     };
     layer.open({
-        offset: offset+'px', //右下角弹出
+        offset:100 +'px', //右下角弹出
         type: 2,
         area: [w+'px', h +'px'],
         fix: false, //不固定
