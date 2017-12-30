@@ -1,4 +1,4 @@
-* 演示站点：https://www.wen2b.com/ 
+* 演示站点：https://lotusadmin.top/ 
 * 账号 ： admin
 * 密码 ： 123456
 
