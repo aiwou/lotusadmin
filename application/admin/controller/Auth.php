@@ -7,7 +7,9 @@ class auth extends Main
 {
     function index(){
         //获取权限列表
-        $auth = Db::name('auth_rule')->order(['sort' => 'DESC', 'id' => 'ASC'])->select();
+        $auth = Db::name('auth_rule')
+	        ->order(['sort' => 'DESC', 'id' => 'ASC'])
+	        ->select();
         $auth = array2Level($auth);
         return $this->fetch('index',['auth'=>$auth]);
     }

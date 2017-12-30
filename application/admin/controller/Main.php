@@ -6,8 +6,10 @@ use think\Controller;
 use think\Db;
 use think\Session;
 
+
 class Main extends Controller
 {
+
     public function _initialize()
     {
         $username  = session('username');
@@ -60,6 +62,4 @@ class Main extends Controller
         $menu = !empty($menu) ? array2tree($menu) : [];
         $this->assign('menu', $menu);
     }
-
-    
 }
