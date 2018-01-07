@@ -58,7 +58,7 @@
                     {if condition="isset($vo['children'])"}
                         <li>
                             <a href="javascript:;">
-                                <i class="layui-icon">{$vo.icon}</i> 
+                                <i class="layui-icon">&#{$vo.icon};</i> 
                                 <!-- <i class="iconfont">&#xe620;</i> -->
                                 <cite>{$vo.title}</cite>
                                 <i class="iconfont nav_right">&#xe697;</i>
@@ -77,7 +77,7 @@
                     {else /}
                 <li>
                             <a _href="{:url($vo.name)}">
-                            <i class="{$vo.icon}"></i> 
+                            <i class="layui-icon">&#{$vo.icon};</i> 
                                     <cite>{$vo.title}</cite>
                                      <i class="iconfont nav_right">&#xe697;</i>
                                 </a>
