@@ -54,9 +54,9 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
-        // if($id<10){
-        //     $this->error('很抱歉,系统默认权限无法编辑');
-        // }
+        if($id<10){
+            $this->error('很抱歉,系统默认权限无法编辑');
+        }
         $validate = validate('auth');
         $validate->scene('edit');
         $res = $validate->check($post);
