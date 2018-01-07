@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : lotus
-Source Server Version : 50557
-Source Host           : 122.152.192.48:3306
+Source Server Version : 50558
+Source Host           : 182.61.54.187:3306
 Source Database       : lotus
 
 Target Server Type    : MYSQL
-Target Server Version : 50557
+Target Server Version : 50558
 File Encoding         : 65001
 
-Date: 2017-11-16 20:00:16
+Date: 2018-01-07 15:29:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,12 +54,12 @@ CREATE TABLE `sm_api` (
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sm_api
 -- ----------------------------
-INSERT INTO `sm_api` VALUES ('26', 'demo', 'https://www.wen2b.com/index/index/testpost', '17RACPHBVSBY249DNQYJQ64NL', 'post', '1', '14924215', 'id:1|name:jack', '123', '123', '1509592427', '1510832161');
+INSERT INTO `sm_api` VALUES ('1', '124fdsv', 'https://www.wen2b.com/index/index/testPost.html', 'NGPJPXYFLBFCTASBXYMYJ97R5', 'get', '0', null, 'id:2|name:jack5558888jack55588', null, null, '1511938273', '1515230760');
 
 -- ----------------------------
 -- Table structure for sm_app
@@ -74,14 +74,24 @@ CREATE TABLE `sm_app` (
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `app_id` (`app_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sm_app
 -- ----------------------------
-INSERT INTO `sm_app` VALUES ('15', '农管家', '69948048', 'ZBS2IVTZVAZNKIJDEYERZFDH6', '1509603925', '1509606585');
-INSERT INTO `sm_app` VALUES ('16', '新闻', '14924215', '8BTA8ZMXB7ETGEEGFKY7TVI3H', '1509604084', '1509606592');
-INSERT INTO `sm_app` VALUES ('20', '天气应用', '47610514', 'J6JICJAYC3FVOEZ8KWMMDDQ2T', '1509608311', '1509608311');
+INSERT INTO `sm_app` VALUES ('40', '11111', '88933469', 'KHVGZMSQL539NPCN4OHP2ENKO', '1512894631', '1515145506');
+INSERT INTO `sm_app` VALUES ('41', '1234', '79840987', '2W8E78MVTB6PO5VWQX41JL119', '1512894694', '1515142250');
+INSERT INTO `sm_app` VALUES ('48', '67890', '83315454', 'T5TIKY52PXW92KI8T47YNCPY2', '1512900450', '1514554017');
+INSERT INTO `sm_app` VALUES ('49', '1213', '89701605', 'CSOS6G1EX3PBE5QLWVOKJ4S4N', '1513262603', '1513262603');
+INSERT INTO `sm_app` VALUES ('50', '1213', '89701605', 'CSOS6G1EX3PBE5QLWVOKJ4S4N', '1513262604', '1513262604');
+INSERT INTO `sm_app` VALUES ('51', '33213213', '36632265', 'SJXMOASBN1F7ZD85V44FPFZD5', '1513749512', '1513749512');
+INSERT INTO `sm_app` VALUES ('52', '66', '41119516', 'VG57ZSSDC1PN66QWHTQ167BXW', '1514170106', '1514170106');
+INSERT INTO `sm_app` VALUES ('54', 'fff', '35381515', 'FW8R3HD2DK7UVSK1UNPWUX3VR', '1514337763', '1514337763');
+INSERT INTO `sm_app` VALUES ('55', 'gggg', '17816116', 'V42T5EVD39Y19PHVQVKAP6AAM', '1514337920', '1514337920');
+INSERT INTO `sm_app` VALUES ('56', '9999', '91719853', 'N4M7WY1EJAEAHVPQXP3FSLDJ6', '1514517844', '1514517844');
+INSERT INTO `sm_app` VALUES ('57', 'cccc', '49974162', 'ZO17VP3DNTDRKP97MDH8QPVP1', '1514942818', '1514942818');
+INSERT INTO `sm_app` VALUES ('58', 'ccccccc', '7590978', 'Z49SLTXW6ZXF3EUE8WINYKQ5M', '1514942861', '1514942861');
+INSERT INTO `sm_app` VALUES ('59', '123', '97260717', 'ZLP2RKXVZD7SMIMC1MU6UCBHR', '1515119209', '1515119209');
 
 -- ----------------------------
 -- Table structure for sm_article
@@ -121,18 +131,22 @@ CREATE TABLE `sm_auth_group` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `rules` varchar(255) NOT NULL COMMENT '权限规则ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COMMENT='权限组表';
+) ENGINE=MyISAM AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COMMENT='权限组表';
 
 -- ----------------------------
 -- Records of sm_auth_group
 -- ----------------------------
 INSERT INTO `sm_auth_group` VALUES ('1', '超级管理组', '1', '1,2,3,103');
-INSERT INTO `sm_auth_group` VALUES ('2', '普通用户', '0', '1,2,3,103,101,102');
-INSERT INTO `sm_auth_group` VALUES ('34', 'dasfdsf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('35', 'asfsadf', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('38', 'adsf', '1', '1,2,3,4,5,6,7,8');
-INSERT INTO `sm_auth_group` VALUES ('52', 'test', '1', '');
-INSERT INTO `sm_auth_group` VALUES ('53', 'test1', '1', '');
+INSERT INTO `sm_auth_group` VALUES ('145', 'asfasdf2', '1', '7,8');
+INSERT INTO `sm_auth_group` VALUES ('144', '11133', '1', '197');
+INSERT INTO `sm_auth_group` VALUES ('165', '1111', '1', '1,2,3,198,4,5,6,7,8,196,197');
+INSERT INTO `sm_auth_group` VALUES ('164', '111', '1', '7,8');
+INSERT INTO `sm_auth_group` VALUES ('166', '1112323', '1', '');
+INSERT INTO `sm_auth_group` VALUES ('168', 'asdzxc', '0', '');
+INSERT INTO `sm_auth_group` VALUES ('140', '222jlj', '1', '1,2,3,4,5,6,7,8');
+INSERT INTO `sm_auth_group` VALUES ('141', 'sad', '1', '1,2,3,4,185,186,5,6,7,8');
+INSERT INTO `sm_auth_group` VALUES ('142', 'asd', '1', '');
+INSERT INTO `sm_auth_group` VALUES ('143', 'dsaf', '1', '1,2,3,4,5,6,7,8,196,197');
 
 -- ----------------------------
 -- Table structure for sm_auth_group_access
@@ -153,6 +167,72 @@ INSERT INTO `sm_auth_group_access` VALUES ('1', '1');
 INSERT INTO `sm_auth_group_access` VALUES ('27', '2');
 INSERT INTO `sm_auth_group_access` VALUES ('28', '2');
 INSERT INTO `sm_auth_group_access` VALUES ('29', '50');
+INSERT INTO `sm_auth_group_access` VALUES ('30', '52');
+INSERT INTO `sm_auth_group_access` VALUES ('31', '54');
+INSERT INTO `sm_auth_group_access` VALUES ('32', '2');
+INSERT INTO `sm_auth_group_access` VALUES ('33', '64');
+INSERT INTO `sm_auth_group_access` VALUES ('34', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('35', '52');
+INSERT INTO `sm_auth_group_access` VALUES ('36', '35');
+INSERT INTO `sm_auth_group_access` VALUES ('37', '52');
+INSERT INTO `sm_auth_group_access` VALUES ('38', '65');
+INSERT INTO `sm_auth_group_access` VALUES ('39', '59');
+INSERT INTO `sm_auth_group_access` VALUES ('40', '69');
+INSERT INTO `sm_auth_group_access` VALUES ('41', '69');
+INSERT INTO `sm_auth_group_access` VALUES ('42', '69');
+INSERT INTO `sm_auth_group_access` VALUES ('43', '61');
+INSERT INTO `sm_auth_group_access` VALUES ('44', '62');
+INSERT INTO `sm_auth_group_access` VALUES ('45', '64');
+INSERT INTO `sm_auth_group_access` VALUES ('46', '69');
+INSERT INTO `sm_auth_group_access` VALUES ('47', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('48', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('49', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('50', '69');
+INSERT INTO `sm_auth_group_access` VALUES ('51', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('52', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('53', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('54', '70');
+INSERT INTO `sm_auth_group_access` VALUES ('55', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('56', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('57', '72');
+INSERT INTO `sm_auth_group_access` VALUES ('58', '72');
+INSERT INTO `sm_auth_group_access` VALUES ('59', '72');
+INSERT INTO `sm_auth_group_access` VALUES ('60', '72');
+INSERT INTO `sm_auth_group_access` VALUES ('61', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('62', '78');
+INSERT INTO `sm_auth_group_access` VALUES ('63', '78');
+INSERT INTO `sm_auth_group_access` VALUES ('64', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('65', '117');
+INSERT INTO `sm_auth_group_access` VALUES ('66', '90');
+INSERT INTO `sm_auth_group_access` VALUES ('67', '90');
+INSERT INTO `sm_auth_group_access` VALUES ('68', '102');
+INSERT INTO `sm_auth_group_access` VALUES ('69', '102');
+INSERT INTO `sm_auth_group_access` VALUES ('70', '102');
+INSERT INTO `sm_auth_group_access` VALUES ('71', '106');
+INSERT INTO `sm_auth_group_access` VALUES ('72', '106');
+INSERT INTO `sm_auth_group_access` VALUES ('73', '112');
+INSERT INTO `sm_auth_group_access` VALUES ('74', '111');
+INSERT INTO `sm_auth_group_access` VALUES ('75', '78');
+INSERT INTO `sm_auth_group_access` VALUES ('76', '126');
+INSERT INTO `sm_auth_group_access` VALUES ('77', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('78', '123');
+INSERT INTO `sm_auth_group_access` VALUES ('79', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('80', '123');
+INSERT INTO `sm_auth_group_access` VALUES ('81', '129');
+INSERT INTO `sm_auth_group_access` VALUES ('82', '135');
+INSERT INTO `sm_auth_group_access` VALUES ('83', '129');
+INSERT INTO `sm_auth_group_access` VALUES ('84', '138');
+INSERT INTO `sm_auth_group_access` VALUES ('85', '137');
+INSERT INTO `sm_auth_group_access` VALUES ('86', '1');
+INSERT INTO `sm_auth_group_access` VALUES ('87', '138');
+INSERT INTO `sm_auth_group_access` VALUES ('88', '138');
+INSERT INTO `sm_auth_group_access` VALUES ('89', '138');
+INSERT INTO `sm_auth_group_access` VALUES ('90', '138');
+INSERT INTO `sm_auth_group_access` VALUES ('91', '117');
+INSERT INTO `sm_auth_group_access` VALUES ('92', '156');
+INSERT INTO `sm_auth_group_access` VALUES ('93', '156');
+INSERT INTO `sm_auth_group_access` VALUES ('94', '163');
+INSERT INTO `sm_auth_group_access` VALUES ('95', '164');
 
 -- ----------------------------
 -- Table structure for sm_auth_rule
@@ -170,19 +250,20 @@ CREATE TABLE `sm_auth_rule` (
   `condition` char(100) DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=113 DEFAULT CHARSET=utf8 COMMENT='规则表';
+) ENGINE=MyISAM AUTO_INCREMENT=199 DEFAULT CHARSET=utf8 COMMENT='规则表';
 
 -- ----------------------------
 -- Records of sm_auth_rule
 -- ----------------------------
-INSERT INTO `sm_auth_rule` VALUES ('1', 'admin/user/default', '用户管理', '1', '1', '0', '2', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '1', '1', '1', '3', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '4', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('4', 'admin/auth/showRole', '角色列表', '1', '1', '1', '5', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('1', 'admin/user/default', '用户管理', '1', '1', '0', 'xe68e', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '1', '1', '1', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('4', 'admin/auth/showRole', '角色列表', '1', '1', '1', '', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('8', 'admin/api/app_list', '接口仓库', '1', '1', '7', '', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('5', 'admin/db_manage/default', '数据库', '1', '1', '0', 'fa', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('6', 'admin/db_manage/index', '优化', '1', '1', '5', 'fa', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('5', 'admin/db_manage/default', '数据库', '1', '1', '0', 'xe631', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('6', 'admin/db_manage/index', '优化', '1', '1', '5', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', 'xe857', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('198', '撒地方', '撒地方', '1', '1', '3', '', '0', '');
 
 -- ----------------------------
 -- Table structure for sm_category
@@ -317,9 +398,10 @@ CREATE TABLE `sm_user` (
   `last_login_ip` varchar(50) DEFAULT '' COMMENT '最后登录IP',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sm_user
 -- ----------------------------
-INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2017-11-16 07:35:12', '111.199.184.17');
+INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2018-01-07 03:25:12', '119.35.253.35');
+INSERT INTO `sm_user` VALUES ('95', 'whnde@qq.com', '32217a220d05109e5da2b5afc97548d2', '', 'whndes@qq.com', '1', '2018-01-06 02:43:57', null, '0.0.0.0');
