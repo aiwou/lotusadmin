@@ -13,15 +13,18 @@ class auth extends Main
         $auth = array2Level($auth);
         return $this->fetch('index',['auth'=>$auth]);
     }
+    //展示权限界面
     function showAdd(){
     	$auth = Db::name('auth_rule')->order(['sort' => 'DESC', 'id' => 'ASC'])->select();
         $auth = array2Level($auth);
     	return  $this->fetch('add',['auth'=>$auth]);
     }
+    //新增权限
     function add(){
     	$post = $this->request->post();
     	$validate = validate('auth');
     	$res = $validate->check($post);
+
 		if($res!==true){
 			$this->error($validate->getError());
 		}else{
@@ -51,9 +54,9 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
-        if($id<10){
-            $this->error('很抱歉,系统默认权限无法编辑');
-        }
+        // if($id<10){
+        //     $this->error('很抱歉,系统默认权限无法编辑');
+        // }
         $validate = validate('auth');
         $validate->scene('edit');
         $res = $validate->check($post);
@@ -102,7 +105,7 @@ class auth extends Main
             ->find();
             if(empty($res)){
                  Db::name('auth_group')
-                ->insert(['title'=>$auth_group]);
+                ->insert(['title'=>$auth_group,'status'=>0]);
                 $this->success('添加成功');
             }else{
                 $this->error('系统中已经存在该用户名');  
