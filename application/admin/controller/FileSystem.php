@@ -16,8 +16,10 @@ class FileSystem extends Main
         if($this->request->isPost()){
              $file = $this->request->file('file');//file是传文件的名称，这是webloader插件固定写入的。因为webloader插件会写入一个隐藏input，不信你们可以通过浏览器检查页面
              $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+             $size = $info->getSize();
+             $size = number_format($size/1024);
              Db::name('file')
-                ->insert(['size'=>$info->getSize(),'url'=> DS.'public' . DS . 'uploads'.DS.$info->getSaveName()]);
+                ->insert(['size'=>$size.'k','url'=> DS.'public' . DS . 'uploads'.DS.$info->getSaveName()]);
              $this->success('上传成功');
         }else{
             return $this->fetch();
