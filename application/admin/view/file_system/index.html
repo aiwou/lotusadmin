@@ -3,10 +3,9 @@
     <link rel="stylesheet" type="text/css" href="__static__/css/webuploader.css" />
     <div class="x-body">
 
-   
 
-       <button class="layui-btn layui-btn-small " 
-        onclick="x_admin_show('上传图片','upload.html',200,250)"></i>上传图片</button>
+       <button class="layui-btn layui-btn-small "
+        onclick="x_admin_show('上传图片','upload.html',500,500)"></i>上传图片</button>
         <button onclick="javascript:location.reload()" class="layui-btn layui-btn-small">刷新</button>
 
       <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$data->total()}</i>条</span>
@@ -25,19 +24,19 @@
         <tbody>
 
         {volist name="data" id="vo"}
-            <tr>
+            <tr id='{$vo.id}' ondblclick="tClick({$vo.id})">
                 <td>
                   <div class="layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{$vo.id}</td>
-                <td>{$vo.url}</td>
+                <td class="url"><img src="{$vo.url}" alt=""> </td>
                 <td>{$vo.size}k</td>
                 <td>
-                  <button onclick="delUser(this,{$vo.id})" class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
+                  <button onclick="del(this,{$vo.id})" class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
                </td>
             </tr>
         {/volist}
-       
+
         </tbody>
       </table>
           <div class="page">
@@ -47,7 +46,7 @@
           </div>
     </div>
 </body>
-  
+
     <script>
       layui.use(['laydate','form'], function(){
         var laydate = layui.laydate;
@@ -78,7 +77,7 @@
                 $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
                 layer.msg('已启用!',{icon: 5,time:1000});
               }
-              
+
           });
       }
 
@@ -92,11 +91,12 @@
         });
       }
 
-      function delUser(obj,id){
+      function del(obj,id){
+        var url = $("#"+id).children('td').children('img').attr('src');
         var count = $(".i_count")[0].innerText;
         layer.confirm('确认要删除吗？',function(index){
             //捉到所有被选中的，发异步进行删除
-            $.post("{:url('admin/user/deleteUser')}", {id: id}, function(data, textStatus, xhr) {
+            $.post("{:url('admin/file_system/del')}", {id:id,url:url}, function(data, textStatus, xhr) {
           /*optional stuff to do after success */
               console.log(data);
               if(data.code==1){
@@ -107,15 +107,23 @@
               }else{
                   layer.msg(data.msg,{icon:2,time:1000});
               }
-            
+
             });
         });
       }
 
-
-
+      function tClick(id){
+          var url = $('#'+id).children('td').children('img').attr('src');
+          //页面层
+          layer.open({
+            type: 1,
+            skin: '', //加上边框
+            area: ['600px', '600px'], //宽高
+            content: "<img width='500' height='500' src="+url+">"
+          });
+      }
 
     </script>
- 
+
  </html>
 {include file="public/foot"}

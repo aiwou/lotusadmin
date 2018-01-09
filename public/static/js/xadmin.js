@@ -1,4 +1,4 @@
-$(function () {
+$(function (){
    //加载弹出层
    layui.use(['form','element'],
     function() {
@@ -11,7 +11,7 @@ $(function () {
         tabAdd: function(title,url,id){
           //新增一个Tab项
           element.tabAdd('xbs_tab', {
-            title: title 
+            title: title
             ,content: '<iframe  tab-id="'+id+'" frameborder="0" src="'+url+'" scrolling="yes" class="x-iframe"></iframe>'
             ,id: id
           })
@@ -41,7 +41,7 @@ $(function () {
                         $(".layui-form-checkbox").addClass('layui-form-checked');
                     }
                 }
-                
+
             });
         },
         getData:function  () {
@@ -113,15 +113,15 @@ $(function () {
                     return;
                 }
             };
-            
+
             tab.tabAdd(title,url,index+1);
             tab.tabChange(index+1);
         }
-        
+
         event.stopPropagation();
-         
+
     })
-    
+
 })
 
 /*弹出层*/
