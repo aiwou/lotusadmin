@@ -54,7 +54,7 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
-        if($id<10){
+        if($id<300){
             $this->error('很抱歉,系统默认权限无法编辑');
         }
         $validate = validate('auth');
@@ -67,7 +67,7 @@ class auth extends Main
             Db::name('auth_rule')
             ->where('id',$id)
             ->update($post);
-            $this->success('success');            
+            $this->success('success');
         }
     }
     function delete(){
@@ -75,14 +75,14 @@ class auth extends Main
         $juge = Db::name('auth_rule')
             ->where('pid',$id)
             ->find();
-        if($id<7){
-                 $this->error('重要节点无法删除'); 
+        if($id<300){
+                 $this->error('重要节点无法删除');
         }
-        if(!empty($juge)){ 
-                $this->error('请先删除子权限'); 
+        if(!empty($juge)){
+                $this->error('请先删除子权限');
         }else{
-            if($id<10){
-                 $this->error('重要节点无法删除'); 
+            if($id<300){
+                 $this->error('重要节点无法删除');
             }else{
                  Db::name('auth_rule')
                     ->delete($id);
@@ -108,7 +108,7 @@ class auth extends Main
                 ->insert(['title'=>$auth_group,'status'=>0]);
                 $this->success('添加成功');
             }else{
-                $this->error('系统中已经存在该用户名');  
+                $this->error('系统中已经存在该用户名');
             }
         }else{
             $this->error('请输入角色名称再添加');
@@ -120,7 +120,7 @@ class auth extends Main
     }
     //获取规则数据
     public function getJson()
-    {   
+    {
         $id = $this->request->post('id');
         $auth_group_data = Db::name('auth_group')->find($id);
         $auth_rules      = explode(',', $auth_group_data['rules']);
@@ -141,7 +141,7 @@ class auth extends Main
         if ($this->request->isPost()){
             $post = $this->request->post();
             if($post['id']==1){
-               $this->error('超级管理员信息无法编辑'); 
+               $this->error('超级管理员信息无法编辑');
             }
             $group_data['id']    = $post['id'];
             $group_data['rules'] = is_array($post['auth_rule_ids']) ? implode(',', $post['auth_rule_ids']) : '';
@@ -161,7 +161,7 @@ class auth extends Main
     function editRole(){
         $post = $this->request->post();
         if($post['id']==1){
-           $this->error('超级管理员信息无法编辑'); 
+           $this->error('超级管理员信息无法编辑');
         }
         $validate = validate('role');
         $res = $validate->check($post);
