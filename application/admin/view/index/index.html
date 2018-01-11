@@ -33,7 +33,7 @@
             </dl>
           </li>
         </ul>
-        
+
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item">
             <a href="javascript:;">{:session('username')}</a>
@@ -45,7 +45,7 @@
           </li>
           <li class="layui-nav-item to-index"><a href="/">前台首页</a></li>
         </ul>
-        
+
     </div>
     <!-- 顶部结束 -->
     <!-- 中部开始 -->
@@ -58,26 +58,53 @@
                     {if condition="isset($vo['children'])"}
                         <li>
                             <a href="javascript:;">
-                                <i class="layui-icon">&#{$vo.icon};</i> 
+                                <i class="layui-icon">&#{$vo.icon};</i>
                                 <!-- <i class="iconfont">&#xe620;</i> -->
                                 <cite>{$vo.title}</cite>
                                 <i class="iconfont nav_right">&#xe697;</i>
                             </a>
                              <ul class="sub-menu">
                                  {foreach name="vo['children']" item="v"}
+                                  {if condition="isset($v['children'])"}
                                     <li>
-                                        <a _href="{:url($v.name)}">
-                                        <i class="layui-icon">&#xe602;</i>
-                                            <cite> {$v.title}</cite>
-                                        </a>
+                                            <a _href="{:url($v.name)}">
+                                            <i class="layui-icon">&#{$v.icon};</i>
+                                                <cite> {$v.title}</cite>
+                                            </a>
+
+                                             <ul class="sub-menu">
+                                              {foreach name="v['children']" item="vs"}
+                                                <li>
+                                                    <a _href="{:url($vs.name)}">
+                                                    <i class="layui-icon">&#xe602;</i>
+                                                        <cite> {$vs.title}</cite>
+                                                    </a>
+
+                                                 </li >
+                                            {/foreach}
+                                            </ul>
+                                        </li>
+                                        {else/}
+                                                    <li>
+                                                        <a _href="{:url($v.name)}">
+                                                        <i class="layui-icon">&#xe602;</i>
+                                                            <cite> {$v.title}</cite>
+                                                        </a>
+                                                    </li>
+
+                                        {/if}
+
                                      </li >
                                 {/foreach}
                             </ul>
                         </li>
+
+
+
                     {else /}
                 <li>
                             <a _href="{:url($vo.name)}">
-                            <i class="layui-icon">&#{$vo.icon};</i> 
+                            <i class="layui-icon">&#{$vo.icon};</i>
                                     <cite>{$vo.title}</cite>
                                      <i class="iconfont nav_right">&#xe697;</i>
                                 </a>
@@ -110,10 +137,10 @@
     <!-- 中部结束 -->
     <!-- 底部开始 -->
     <div class="footer">
-        <div class="copyright">Copyright ©2017 Lotus-Admin v1.0 All Rights Reserved</div>  
+        <div class="copyright">Copyright ©2017 Lotus-Admin v1.0 All Rights Reserved</div>
     </div>
     <!-- 底部结束 -->
-    
+
 
 </body>
 </html>

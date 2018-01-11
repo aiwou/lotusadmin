@@ -11,7 +11,7 @@ layui.define(["element","jquery"],function(exports){
 		layId,
 		Tab = function(){
 			this.tabConfig = {
-				closed : true,  
+				closed : true,
 				openTabNum : undefined,  //最大可打开窗口数量
 				tabFilter : "bodyTab",  //添加窗口的filter
 				url : undefined  //获取菜单json地址
@@ -232,6 +232,7 @@ layui.define(["element","jquery"],function(exports){
 		element.tabChange(tabFilter,$(this).attr("lay-id")).init();
 		// new Tab().tabMove();
 	})
+
 	//删除tab
 	$("body").on("click",".top_tab li i.layui-tab-close",function(){
 		//删除tab后重置session中的menu和curmenu
