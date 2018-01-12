@@ -58,8 +58,12 @@
                     {if condition="isset($vo['children'])"}
                         <li>
                             <a href="javascript:;">
-                                <i class="layui-icon">&#{$vo.icon};</i>
-                                <!-- <i class="iconfont">&#xe620;</i> -->
+                                 {if condition="!empty($vo['icon'])"}
+                                     <i class="layui-icon">&#{$vo.icon};</i>
+                                 {else/}
+                                      <i class="layui-icon"></i>
+                                 {/if}
+                                  <!-- <i class="iconfont">&#xe620;</i> -->
                                 <cite>{$vo.title}</cite>
                                 <i class="iconfont nav_right">&#xe697;</i>
                             </a>
@@ -68,10 +72,13 @@
                                   {if condition="isset($v['children'])"}
                                     <li>
                                             <a _href="{:url($v.name)}">
-                                            <i class="layui-icon">&#{$v.icon};</i>
-                                                <cite> {$v.title}</cite>
+                                                {if condition="empty($v['icon'])"}
+                                                      <i class="layui-icon"></i>
+                                                {else/}
+                                                      <i class="layui-icon">&#{$v.icon};</i>
+                                                 {/if}
+                                                 <cite> {$v.title}</cite>
                                             </a>
-
                                              <ul class="sub-menu">
                                               {foreach name="v['children']" item="vs"}
                                                 <li>
@@ -104,7 +111,12 @@
                     {else /}
                 <li>
                             <a _href="{:url($vo.name)}">
-                            <i class="layui-icon">&#{$vo.icon};</i>
+                            {if condition="!empty($vo['icon'])"}
+                                 <i class="layui-icon">&#{$vo.icon};</i>
+                            {else/}
+                                  <i class="layui-icon"></i>
+                            {/if}
+
                                     <cite>{$vo.title}</cite>
                                      <i class="iconfont nav_right">&#xe697;</i>
                                 </a>
