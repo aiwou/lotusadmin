@@ -54,7 +54,7 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
-        if($id<300){
+        if($id<203){
             $this->error('很抱歉,系统默认权限无法编辑');
         }
         $validate = validate('auth');
@@ -75,13 +75,13 @@ class auth extends Main
         $juge = Db::name('auth_rule')
             ->where('pid',$id)
             ->find();
-        if($id<300){
+        if($id<203){
                  $this->error('重要节点无法删除');
         }
         if(!empty($juge)){
                 $this->error('请先删除子权限');
         }else{
-            if($id<300){
+            if($id<203){
                  $this->error('重要节点无法删除');
             }else{
                  Db::name('auth_rule')

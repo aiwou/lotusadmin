@@ -9,6 +9,7 @@ $(function (){
   //触发事件
   var tab = {
         tabAdd: function(title,url,id){
+
           //新增一个Tab项
           element.tabAdd('xbs_tab', {
             title: title
@@ -85,7 +86,6 @@ $(function (){
     //左侧菜单效果
     // $('#content').bind("click",function(event){
     $('.left-nav #nav li').click(function (event) {
-
         if($(this).children('.sub-menu').length){
             if($(this).hasClass('open')){
                 $(this).removeClass('open');
