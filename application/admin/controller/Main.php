@@ -9,7 +9,9 @@ use think\Session;
 
 class Main extends Controller
 {
-
+    /**
+     * 初始化
+    */
     public function _initialize()
     {
         $username  = session('username');

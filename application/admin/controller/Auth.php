@@ -33,6 +33,7 @@ class auth extends Main
 			$this->success('success');
 		}
     }
+    //权限编辑页面
     function showEdit(){
         $id  = $this->request->get('id');
         $pid = Db::name('auth_rule')
@@ -51,6 +52,7 @@ class auth extends Main
             ->find();
         return  $this->fetch('edit',['data'=>$data]);
     }
+    /*权限编辑*/
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
@@ -70,6 +72,7 @@ class auth extends Main
             $this->success('success');
         }
     }
+    /*权限删除*/
     function delete(){
         $id = $this->request->post('id');
         $juge = Db::name('auth_rule')
@@ -90,6 +93,7 @@ class auth extends Main
             }
         }
     }
+    /*角色页面展示*/
     function showRole(){
         $role = Db::name('auth_group')
             ->order('id desc')
@@ -97,6 +101,7 @@ class auth extends Main
         $this->assign('role',$role);
         return $this->fetch('role');
     }
+    //新增角色
     function addRole(){
         $auth_group = $this->request->post('role_name');
         if(!empty($auth_group)){
@@ -114,6 +119,7 @@ class auth extends Main
             $this->error('请输入角色名称再添加');
         }
     }
+    //授权页面展示
     function showAuth($id){
         $this->assign('id',$id);
         return $this->fetch('auth');
@@ -152,12 +158,14 @@ class auth extends Main
             }
         }
     }
+    //角色编辑页面
     function showRoleEdit($id){
         $data = Db::name('auth_group')
         ->where('id',$id)
         ->find();
         return $this->fetch('roleEdit',['data'=>$data]);
     }
+    //角色编辑
     function editRole(){
         $post = $this->request->post();
         if($post['id']==1){
@@ -174,6 +182,7 @@ class auth extends Main
             $this->success('更新成功');
         }
     }
+    // 删除角色
     function delRole(){
         $id  = $this->request->post('id');
         if($id!=='1'){
