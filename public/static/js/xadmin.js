@@ -6,6 +6,10 @@ $(function (){
         element = layui.element;
     });
 
+   $(".layui-tab-title li").bind('click',function(){
+        console.log(22);
+   })
+
   //触发事件
   var tab = {
         tabAdd: function(title,url,id){
@@ -27,6 +31,8 @@ $(function (){
           element.tabChange('xbs_tab', id); //切换到：用户管理
         }
       };
+
+
 
     tableCheck = {
         init:function  () {
@@ -78,6 +84,8 @@ $(function (){
         $('.page-content').animate({left: '0px'}, 100);
         $(this).hide();
     });
+
+   
 
     $('.layui-tab-close').click(function(event) {
         $('.layui-tab-title li').eq(0).find('i').remove();
@@ -167,6 +175,8 @@ function x_admin_close(){
     var index = parent.layer.getFrameIndex(window.name);
     parent.layer.close(index);
 }
+
+
 
 
 
