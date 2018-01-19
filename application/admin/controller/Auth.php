@@ -8,14 +8,14 @@ class auth extends Main
     function index(){
         //获取权限列表
         $auth = Db::name('auth_rule')
-	        ->order(['sort' => 'DESC', 'id' => 'ASC'])
+	        ->order(['sort' => 'ASC'])
 	        ->select();
         $auth = array2Level($auth);
         return $this->fetch('index',['auth'=>$auth]);
     }
     //展示权限界面
     function showAdd(){
-    	$auth = Db::name('auth_rule')->order(['sort' => 'DESC', 'id' => 'ASC'])->select();
+    	$auth = Db::name('auth_rule')->order(['sort' => 'ASC'])->select();
         $auth = array2Level($auth);
     	return  $this->fetch('add',['auth'=>$auth]);
     }
@@ -56,9 +56,11 @@ class auth extends Main
     function edit(){
         $post =  $this->request->post();
         $id = $post['id'];
+        /*start 演示数据保护，开发可以删除*/
         if($id<203){
             $this->error('很抱歉,系统默认权限无法编辑');
         }
+        /*end*/
         $validate = validate('auth');
         $validate->scene('edit');
         $res = $validate->check($post);
@@ -78,9 +80,11 @@ class auth extends Main
         $juge = Db::name('auth_rule')
             ->where('pid',$id)
             ->find();
-        if($id<203){
-                 $this->error('重要节点无法删除');
+        /*start 演示数据保护，开发可以删除*/
+         if($id<203){
+                  $this->error('重要节点无法删除');
         }
+        /*end*/
         if(!empty($juge)){
                 $this->error('请先删除子权限');
         }else{

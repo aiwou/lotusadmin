@@ -13,6 +13,7 @@
             <th>控制器方法</th>
             <th>图标</th>
             <th>状态</th>
+            <th>排序参数(越大越往后,最大255)</th>
             <th>操作</th>
         </thead>
         <tbody>
@@ -33,6 +34,15 @@
                                     </i>   
                                 </td>
                                 <td>{eq name='vo.status' value='1'}显示{else/}<font color="red">隐藏</font>{/eq}
+                                </td>
+                                <td>
+                                    {php}
+                                        if($vo['level']!==1){
+                                            echo '非顶级权限参数无效';
+                                    }else{
+                                        echo $vo['sort'];
+                                    }
+                                    {/php}
                                 </td>
                                 <td> <!--<button type="button" class="btn btn-success">添加子菜单</button> <button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger" onClick="delcfm('{:url(\'admin/menu/del\',[\'id\' => $vo[\'id\']])}','{$vo.title}')">删除</button>-->
                                     <button type="button" onclick="x_admin_show('编辑菜单',

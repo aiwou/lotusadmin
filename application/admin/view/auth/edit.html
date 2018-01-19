@@ -49,6 +49,7 @@
                     </input>
                 </div>
             </div>
+     
 
 
             <div class="layui-form-item">
@@ -64,15 +65,29 @@
                 </div>
             </div>
 
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    排序
-                </label>
-                <div class="layui-input-block">
-                    <input autocomplete="off" value="{$data.sort}" class="layui-input" id="sort"  lay-verify="required" name="sort" placeholder="排序数值越大排列越靠前" type="text" value="0">
-                    </input>
+            {if condition='$data.pid!==0'}
+                <div class="layui-form-item" style="display: none;">
+                            <label class="layui-form-label">
+                                排序
+                            </label>
+                            <div class="layui-input-block">
+                                <input autocomplete="off" value="{$data.sort}" class="layui-input" id="sort"  lay-verify="required" name="sort" placeholder="排序数值越大排列越靠前" type="text" value="0">
+                                </input>
+                            </div>
                 </div>
-            </div>
+            {else/}
+                  <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                排序
+                            </label>
+                            <div class="layui-input-block">
+                                <input autocomplete="off" value="{$data.sort}" class="layui-input" id="sort"  lay-verify="required" name="sort" placeholder="排序数值越大排列越靠前" type="text" value="0">
+                                </input>
+                            </div>
+                </div>
+            {/if}
+
+          
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
