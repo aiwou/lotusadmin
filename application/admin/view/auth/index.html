@@ -13,7 +13,7 @@
             <th>控制器方法</th>
             <th>图标</th>
             <th>状态</th>
-            <th>排序参数(越大越往后,最大255)</th>
+            <th>排序参数(越大越往后)</th>
             <th>操作</th>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@
                                 <td>
                                     {php}
                                         if($vo['level']!==1){
-                                            echo '非顶级权限参数无效';
+                                            echo '非顶级权限,参数无效';
                                     }else{
                                         echo $vo['sort'];
                                     }
