@@ -8,11 +8,15 @@ use think\Validate;
 
 class User extends Controller
 {
-
+    /**
+     * 首页
+    */
     public function index(){
         return $this->fetch('login');
     }
-
+    /**
+     * 登录
+    */
     public function login()
     {
         $post     = $this->request->post();

@@ -14,11 +14,11 @@ class api extends Main
 		$this->assign('data',$data);
 		return $this->fetch('app_list');
 	}
-
+    //增加应用页面展示
 	function show_add_app(){
 		return $this->fetch('add_app');
 	}
-
+	//增加应用
 	function add_app(){
 		$post = $this->request->post();
 		$model = new AppModel();
@@ -29,13 +29,14 @@ class api extends Main
 			$this->success('success');	
 		}
 	}
+	//应用页面编辑
 	function show_edit_app($id){
 		$data   = Db::name('app')
 		->where('id',$id)
 		->find();
 		return $this->fetch('edit_app',['data'=>$data]);
 	}
-
+	//应用编辑
 	function edit_app(){
 		$post = $this->request->post();
 		$model = new AppModel();
@@ -46,7 +47,7 @@ class api extends Main
 			$this->success('success');
 		}
 	}
-
+	//删除应用
     function delete_app(){
     	$id = $this->request->post('id');
     	$model  = new AppModel();
@@ -59,13 +60,16 @@ class api extends Main
 		$this->assign('data',$data);
 		return $this->fetch();
 	}
+	//展示api页面
 	function showAddApi(){
 		return $this->fetch('add_api');
 	}
+	//展示标记API页面
 	function show_edit_api($id){
 		$data = Db::name('api')->find($id);
 		return $this->fetch('edit_api',['data'=>$data]);
 	}
+	//增加API
  	function addApi(){
  		$post = $this->request->post();
  		$model = new ApiModel();
@@ -76,6 +80,7 @@ class api extends Main
  			$this->success('success');
  		}
  	}
+ 	//编辑API
  	function edit_api(){
  		$post =  $this->request->post();
  		$model  = new ApiModel();
@@ -89,7 +94,7 @@ class api extends Main
  			$this->success('success');
  		}
  	}
-
+ 	//api状态修改
  	function change_status(){
  		$post = $this->request->post();
  		if($post['is_token']=='1'){
@@ -100,7 +105,7 @@ class api extends Main
  			$this->success('启用成功');
  		}
  	}
-
+ 	//删除api
  	function delete_api(){
  		$id = $this->request->post('id');
  		$model  = new ApiModel();
@@ -110,12 +115,12 @@ class api extends Main
     	ApiModel::destroy($id);
     	$this->success('delete success');
  	}
-
+ 	//参数页面渲染
  	function param($id){
  		$data = Db::name('api')->where('id',$id)->field('param')->find();
  		return $this->fetch('param',['api_id'=>$id,'data'=>$data]);
  	}
-
+ 	//参数编辑
  	function edit_param(){
  		$post = $this->request->post();
  		$id = $post['api_id'];
@@ -124,21 +129,7 @@ class api extends Main
  		 		->update(['param'=>$post['param']]);
  		$this->success('测试参数添加成功');
  	}
-
- 	function doTest0(){
- 		$id   = $this->request->post('id');
- 		$data = Db::name('api')
- 				->where('id',$id)
- 				->field('param,base_url,method')
- 				->find();
- 		if($data['method']=='post'){
- 			$post_data = json_decode($data['param']);
- 			
- 		}else{
- 			$get_data = json_decode($data['param']);
- 		}
- 	}
-
+ 	//执行测试
  	function doTest($id){
  		$data = Db::name('api')
  				->where('id',$id)
@@ -185,7 +176,7 @@ class api extends Main
  		}
  		return $this->fetch();
  	}
-
+ 	//get请求测试
  	function doGet($url)
     {
         //初始化
@@ -204,7 +195,7 @@ class api extends Main
         curl_close($ch);
         return  $output;
     }
-
+    //post请求测试
     public function doPost($url,$post_data,$header)
     {
         $ch = curl_init();
@@ -221,10 +212,8 @@ class api extends Main
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // 不从证书中检查SSL加密算法是否存在
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-
         $output = curl_exec($ch);
         curl_close($ch);
-
         return $output;
     }
 

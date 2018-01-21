@@ -6,9 +6,14 @@ $(function (){
         element = layui.element;
     });
 
+   $(".layui-tab-title li").bind('click',function(){
+        console.log(22);
+   })
+
   //触发事件
   var tab = {
         tabAdd: function(title,url,id){
+
           //新增一个Tab项
           element.tabAdd('xbs_tab', {
             title: title
@@ -26,6 +31,8 @@ $(function (){
           element.tabChange('xbs_tab', id); //切换到：用户管理
         }
       };
+
+
 
     tableCheck = {
         init:function  () {
@@ -78,6 +85,8 @@ $(function (){
         $(this).hide();
     });
 
+   
+
     $('.layui-tab-close').click(function(event) {
         $('.layui-tab-title li').eq(0).find('i').remove();
     });
@@ -85,7 +94,6 @@ $(function (){
     //左侧菜单效果
     // $('#content').bind("click",function(event){
     $('.left-nav #nav li').click(function (event) {
-
         if($(this).children('.sub-menu').length){
             if($(this).hasClass('open')){
                 $(this).removeClass('open');
@@ -167,6 +175,8 @@ function x_admin_close(){
     var index = parent.layer.getFrameIndex(window.name);
     parent.layer.close(index);
 }
+
+
 
 
 

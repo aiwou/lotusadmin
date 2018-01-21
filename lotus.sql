@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50558
 File Encoding         : 65001
 
-Date: 2018-01-12 09:52:52
+Date: 2018-01-19 15:15:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -59,7 +59,7 @@ CREATE TABLE `sm_api` (
 -- ----------------------------
 -- Records of sm_api
 -- ----------------------------
-INSERT INTO `sm_api` VALUES ('1', 'test', 'https://www.lotusadmin.top/index/index/testPost.html', 'NGPJPXYFLBFCTASBXYMYJ97R5', 'get', '1', null, 'id:2|name:jack5558888jack555', null, null, '1511938273', '1515675051');
+INSERT INTO `sm_api` VALUES ('1', 'test', 'https://www.lotusadmin.top/index/index/testPost.html', 'NGPJPXYFLBFCTASBXYMYJ97R5', 'no_limit', '1', null, 'id:2|name:99991', null, null, '1511938273', '1516332457');
 
 -- ----------------------------
 -- Table structure for sm_app
@@ -74,12 +74,11 @@ CREATE TABLE `sm_app` (
   `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `app_id` (`app_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sm_app
 -- ----------------------------
-INSERT INTO `sm_app` VALUES ('40', '11111', '88933469', 'KHVGZMSQL539NPCN4OHP2ENKO', '1512894631', '1515563415');
 INSERT INTO `sm_app` VALUES ('41', '1234', '79840987', '2W8E78MVTB6PO5VWQX41JL119', '1512894694', '1515499962');
 INSERT INTO `sm_app` VALUES ('48', '67890', '83315454', 'T5TIKY52PXW92KI8T47YNCPY2', '1512900450', '1514554017');
 INSERT INTO `sm_app` VALUES ('49', '1213', '89701605', 'CSOS6G1EX3PBE5QLWVOKJ4S4N', '1513262603', '1513262603');
@@ -89,8 +88,9 @@ INSERT INTO `sm_app` VALUES ('52', '66', '41119516', 'VG57ZSSDC1PN66QWHTQ167BXW'
 INSERT INTO `sm_app` VALUES ('54', 'fff', '35381515', 'FW8R3HD2DK7UVSK1UNPWUX3VR', '1514337763', '1514337763');
 INSERT INTO `sm_app` VALUES ('55', 'gggg', '17816116', 'V42T5EVD39Y19PHVQVKAP6AAM', '1514337920', '1514337920');
 INSERT INTO `sm_app` VALUES ('57', 'cccc', '49974162', 'ZO17VP3DNTDRKP97MDH8QPVP1', '1514942818', '1514942818');
-INSERT INTO `sm_app` VALUES ('58', 'ccccccc', '7590978', 'Z49SLTXW6ZXF3EUE8WINYKQ5M', '1514942861', '1514942861');
-INSERT INTO `sm_app` VALUES ('60', 'kkk', '54715303', '5CCDKWB5RF2VEEFSXMK3OPI81', '1515595547', '1515595547');
+INSERT INTO `sm_app` VALUES ('58', 'ccccccc', '7590978', 'Z49SLTXW6ZXF3EUE8WINYKQ5M', '1514942861', '1516323910');
+INSERT INTO `sm_app` VALUES ('60', 'kkk', '54715303', '5CCDKWB5RF2VEEFSXMK3OPI81', '1515595547', '1515741039');
+INSERT INTO `sm_app` VALUES ('61', '888', '82758191', '2584LUAXGDEF2OFJESDQKPAVC', '1515790384', '1515790384');
 
 -- ----------------------------
 -- Table structure for sm_article
@@ -130,18 +130,13 @@ CREATE TABLE `sm_auth_group` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `rules` varchar(255) NOT NULL COMMENT '权限规则ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=178 DEFAULT CHARSET=utf8 COMMENT='权限组表';
+) ENGINE=MyISAM AUTO_INCREMENT=186 DEFAULT CHARSET=utf8 COMMENT='权限组表';
 
 -- ----------------------------
 -- Records of sm_auth_group
 -- ----------------------------
 INSERT INTO `sm_auth_group` VALUES ('1', '超级管理组', '1', '1,2,3,103');
-INSERT INTO `sm_auth_group` VALUES ('145', 'asfasdf2', '1', '7,8');
-INSERT INTO `sm_auth_group` VALUES ('144', '11133', '0', '197');
-INSERT INTO `sm_auth_group` VALUES ('172', 'test', '1', '5,6,7,8,203,204,205');
-INSERT INTO `sm_auth_group` VALUES ('173', 'sadxzc', '1', '1,2,3,4,5,6,7,8');
-INSERT INTO `sm_auth_group` VALUES ('176', '123', '0', '');
-INSERT INTO `sm_auth_group` VALUES ('177', '123123', '0', '');
+INSERT INTO `sm_auth_group` VALUES ('185', '123', '1', '1,2,3,4,5,6,7,8,202,203,204');
 
 -- ----------------------------
 -- Table structure for sm_auth_group_access
@@ -233,6 +228,10 @@ INSERT INTO `sm_auth_group_access` VALUES ('97', '172');
 INSERT INTO `sm_auth_group_access` VALUES ('98', '175');
 INSERT INTO `sm_auth_group_access` VALUES ('99', '1');
 INSERT INTO `sm_auth_group_access` VALUES ('100', '173');
+INSERT INTO `sm_auth_group_access` VALUES ('101', '180');
+INSERT INTO `sm_auth_group_access` VALUES ('102', '181');
+INSERT INTO `sm_auth_group_access` VALUES ('103', '185');
+INSERT INTO `sm_auth_group_access` VALUES ('104', '185');
 
 -- ----------------------------
 -- Table structure for sm_auth_rule
@@ -246,11 +245,11 @@ CREATE TABLE `sm_auth_rule` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
   `pid` smallint(5) unsigned NOT NULL COMMENT '父级ID',
   `icon` varchar(50) DEFAULT '' COMMENT '图标',
-  `sort` tinyint(4) unsigned NOT NULL COMMENT '排序',
+  `sort` int(50) unsigned NOT NULL COMMENT '排序',
   `condition` char(100) DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=206 DEFAULT CHARSET=utf8 COMMENT='规则表';
+) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8 COMMENT='规则表';
 
 -- ----------------------------
 -- Records of sm_auth_rule
@@ -260,13 +259,12 @@ INSERT INTO `sm_auth_rule` VALUES ('2', 'admin/user/userlist', '用户列表', '
 INSERT INTO `sm_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('4', 'admin/auth/showRole', '角色列表', '1', '1', '1', '', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('8', 'admin/api/app_list', '接口仓库', '1', '1', '7', '', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('5', 'admin/db_manage/default', '数据库', '1', '1', '0', 'xe631', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('6', 'admin/db_manage/index', '优化', '1', '1', '5', '', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('5', 'admin/DbManage/default', '数据库', '1', '1', '0', 'xe631', '0', '');
+INSERT INTO `sm_auth_rule` VALUES ('6', 'admin/DbManage/index', '优化', '1', '1', '5', '', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', 'xe857', '0', '');
 INSERT INTO `sm_auth_rule` VALUES ('202', 'admin/file_system/index', '文件管理', '1', '1', '0', 'xe61d', '0', '');
-INSERT INTO `sm_auth_rule` VALUES ('203', 'sadasd', '一级菜单', '1', '1', '0', 'xe600', '200', '');
+INSERT INTO `sm_auth_rule` VALUES ('203', 'sadasd', '一级菜单', '1', '1', '0', '&#xe756;', '200', '');
 INSERT INTO `sm_auth_rule` VALUES ('204', 'asdasd', '二级菜单', '1', '1', '203', 'xe60a', '200', '');
-INSERT INTO `sm_auth_rule` VALUES ('205', 'sadasdasd', '三级菜单', '1', '1', '204', '', '255', '');
 
 -- ----------------------------
 -- Table structure for sm_category
@@ -303,20 +301,13 @@ CREATE TABLE `sm_file` (
   `url` varchar(255) DEFAULT NULL,
   `size` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sm_file
 -- ----------------------------
 INSERT INTO `sm_file` VALUES ('30', '/public/uploads/20180109/c3be19bb67f119378a744246f8547d7d.jpg', '444k');
-INSERT INTO `sm_file` VALUES ('32', '/public/uploads/20180109/6d781405b9283e686ce7c35318296f72.jpg', '233k');
 INSERT INTO `sm_file` VALUES ('33', '/public/uploads/20180109/148c62e0934cd97545897fabdc94fb43.jpg', '411k');
-INSERT INTO `sm_file` VALUES ('35', '/public/uploads/20180109/278d28de60b3a222b9de9a2feeac1811.jpg', '559k');
-INSERT INTO `sm_file` VALUES ('37', '/public/uploads/20180109/ee0b71f4ff2b34e4e28b3ecf08100691.jpg', '261k');
-INSERT INTO `sm_file` VALUES ('39', '/public/uploads/20180109/8b4339a3900b49bc4b1d99547bd4eade.jpg', '211k');
-INSERT INTO `sm_file` VALUES ('43', '/public/uploads/20180109/099c801727609fd3d69417b70e0302b8.jpg', '215k');
-INSERT INTO `sm_file` VALUES ('46', '/public/uploads/20180109/9a58b24da7b35462c5d7f5125ac5cae9.jpg', '197k');
-INSERT INTO `sm_file` VALUES ('47', '/public/uploads/20180109/57201c4836970c35ed3eed13b7530597.jpg', '166k');
 
 -- ----------------------------
 -- Table structure for sm_link
@@ -425,13 +416,10 @@ CREATE TABLE `sm_user` (
   `last_login_ip` varchar(50) DEFAULT '' COMMENT '最后登录IP',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=MyISAM AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sm_user
 -- ----------------------------
-INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2018-01-12 09:49:58', '101.80.103.37');
-INSERT INTO `sm_user` VALUES ('97', 'test123', 'e10adc3949ba59abbe56e057f20f883e', '', 'admin@qq.com', '1', '2018-01-09 04:34:44', '2018-01-09 04:35:00', '119.96.112.97');
-INSERT INTO `sm_user` VALUES ('98', 'yyy111', 'e10adc3949ba59abbe56e057f20f883e', '', '111111@qq.com', '1', '2018-01-10 05:21:32', '2018-01-10 05:22:53', '115.206.125.139');
-INSERT INTO `sm_user` VALUES ('96', '123123', '4297f44b13955235245b2497399d7a93', '', '123123@123.com', '1', '2018-01-09 03:17:02', '2018-01-09 11:16:33', '222.188.41.89');
-INSERT INTO `sm_user` VALUES ('99', 'admins', '256e718e8ce80acf09081508b1a2520c', '', 'test@test.com', '1', '2018-01-10 06:42:34', null, '0.0.0.0');
+INSERT INTO `sm_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', 'whnde@qq.com', '1', '2017-09-20 07:01:19', '2018-01-19 03:06:01', '182.245.30.227');
+INSERT INTO `sm_user` VALUES ('104', 'fffff', '96e79218965eb72c92a549dd5a330112', '', '825560019@qq.com', '1', '2018-01-18 06:50:18', null, '0.0.0.0');
