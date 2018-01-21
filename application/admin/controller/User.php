@@ -67,6 +67,7 @@ class User extends Controller
     {
         $auth_group = Db::name('auth_group')
         ->field('id,title')
+        ->where('status',1)
         ->order('id desc')
         ->select();
         return $this->fetch('add',['auth_group'=>$auth_group]);

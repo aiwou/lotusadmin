@@ -123,6 +123,24 @@ class auth extends Main
             $this->error('请输入角色名称再添加');
         }
     }
+    //切换角色状态
+    function doChangeRoleStatus(){
+        $data = $this->request->post();
+        if($data['id']==1){
+            $this->error('不允许修改超级管理员角色');
+        }
+        if($data['status']==0){
+            Db::name('auth_group')
+                ->where('id',$data['id'])
+                ->update(['status'=>1]);
+                $this->success('启用成功');
+        }else{
+             Db::name('auth_group')
+                ->where('id',$data['id'])
+                ->update(['status'=>0]);
+                $this->success('禁用成功');
+        }
+    }
     //授权页面展示
     function showAuth($id){
         $this->assign('id',$id);
