@@ -2,6 +2,7 @@
 namespace app\admin\controller;
 
 use think\Db;
+
 class DbManage extends Main
 {
   function index(){
