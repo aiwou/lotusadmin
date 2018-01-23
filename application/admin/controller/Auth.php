@@ -37,14 +37,11 @@ class auth extends Main
     //异常字符串处理
     function checkStr($str){
         switch ($str) {
-            case count(explode('&#', $str))>1:
-                # code...
-                return ltrim($str,'&#');
-            case count(explode(';', $str))>1:
-                # code...
-                return rtrim($str,';');
+            case strspn($str,'&#;')>0:
+                $str =  ltrim($str,'&#');
+                $str =  rtrim($str,';');
+                return $str;
             default:
-                # code...
                 return $str;
                 break;
         }
