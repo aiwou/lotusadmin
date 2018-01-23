@@ -22,9 +22,10 @@ class auth extends Main
     //新增权限
     function add(){
     	$post = $this->request->post();
+        $str = $post['icon'];
+        $post['icon'] = $this->checkStr($str);
     	$validate = validate('auth');
     	$res = $validate->check($post);
-
 		if($res!==true){
 			$this->error($validate->getError());
 		}else{
@@ -32,6 +33,21 @@ class auth extends Main
 			->insert($post);
 			$this->success('success');
 		}
+    }
+    //异常字符串处理
+    function checkStr($str){
+        switch ($str) {
+            case count(explode('&#', $str))>1:
+                # code...
+                return ltrim($str,'&#');
+            case count(explode(';', $str))>1:
+                # code...
+                return rtrim($str,';');
+            default:
+                # code...
+                return $str;
+                break;
+        }
     }
     //权限编辑页面
     function showEdit(){
