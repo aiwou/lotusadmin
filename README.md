@@ -3,7 +3,7 @@
 * 密码 ： 123456
  
 官方交流群：606645328 
- 
+![mahua](./public/pic/step2.png)
 ![mahua](./public/pic/main3.png)
 ![mahua](./public/pic/desktop.png)
 ![mahua](./public/pic/main2.png)
