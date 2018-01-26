@@ -103,27 +103,34 @@
 {block name='script'}
 <script src="__module__/layer/layer.js"></script>
 <script type="text/javascript">
-    //捕获页
-    layer.open({
-      type: 1,
-      shade: false,
-      title: false, //不显示标题
-      content: $('.notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-      cancel: function(){
-       
-        }
-    });
+  
 
-    var swiper = new Swiper('.swiper-container', {
-		        pagination: '.swiper-pagination',
-		        direction: 'vertical',
-		        slidesPerView: 1,
-		        paginationClickable: true,
-		        spaceBetween: 10,
-		        mousewheelControl: true,
+    $(function(){
+           
+            layer.open({
+              type: 1,
+              shade: false,
+              title: false, //不显示标题
+              content: $('.notice'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+              cancel: function(){
+               
+                }
+            });
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                direction: 'vertical',
+                slidesPerView: 1,
+                paginationClickable: true,
+                spaceBetween: 10,
+                mousewheelControl: true,
                 effect:'coverflow',
                 autoplay: 8000
-		    });
+            });
+    })
+ 
+
+    
     function show_tip(){
        var index1 =  layer.confirm('各位用户老爷们,看在我这么努力的份上,无论如何给颗star吧！！！',
             {title:'别急悟空！',
