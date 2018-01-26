@@ -4,9 +4,9 @@
  
 官方交流群：606645328 
  
-![mahua](main3.png)
-![mahua](main.png)
-![mahua](main2.png)
+![mahua](./public/pic/main3.png)
+![mahua](./public/pic/main.png)
+![mahua](./public/pic/main2.png)
 ##LotusAdmin是什么?
 
 一个使用thinkphp5.0.11+layui2.0后台开发的极速开发框架
@@ -67,11 +67,11 @@
 
 ##微信捐赠作者，支持继续开发
  
-<img src="wechat.jpg" style="float: left" alt="..." width="100px">
+<img src="./public/pic/wechat.jpg" style="float: left" alt="..." width="100px">
 
 ##支付宝捐赠作者，支持继续开发
 
-<img src="alipay.jpg" style="float: left" alt="..." width="100px">
+<img src="./public/pic/alipay.jpg" style="float: left" alt="..." width="100px">
 
 ##关于作者
 
