@@ -123,7 +123,8 @@ class Index extends Controller
 
         $folders    = [
             realpath(LOTUS_ROOT . 'data') . DS,
-            realpath('./public/uploads') . DS,
+            realpath(LOTUS_ROOT.'public/uploads') . DS,
+            realpath(LOTUS_ROOT.'runtime') . DS,
         ];
         
         $newFolders = [];
