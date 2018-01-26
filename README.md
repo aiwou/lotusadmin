@@ -5,7 +5,7 @@
 官方交流群：606645328 
  
 ![mahua](./public/pic/main3.png)
-![mahua](./public/pic/main.png)
+![mahua](./public/pic/desktop.png)
 ![mahua](./public/pic/main2.png)
 ##LotusAdmin是什么?
 
