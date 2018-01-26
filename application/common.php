@@ -168,3 +168,117 @@ function getCity($ip = '')
     
     return $data;   
 }
+ /**
+ * 判断 LotusAdmin 核心是否安装
+ * @return bool
+ */
+function lotus_is_installed()
+{
+    static $lotusIsInstalled;
+    if (empty($lotusIsInstalled)) {
+        $lotusIsInstalled = file_exists(LOTUS_ROOT.'data/install.lock');
+    }
+    return $lotusIsInstalled;
+}
+/**
+ * 切分SQL文件成多个可以单独执行的sql语句
+ * @param $file sql文件路径
+ * @param $tablePre 表前缀
+ * @param string $charset 字符集
+ * @param string $defaultTablePre 默认表前缀
+ * @param string $defaultCharset 默认字符集
+ * @return array
+ */
+function lotus_split_sql($file, $tablePre, $charset = 'utf8mb4', $defaultTablePre = 'lotus_', $defaultCharset = 'utf8mb4')
+{
+    if (file_exists($file)) {
+        //读取SQL文件
+        $sql = file_get_contents($file);
+        $sql = str_replace("\r", "\n", $sql);
+        $sql = str_replace("BEGIN;\n", '', $sql);//兼容 navicat 导出的 insert 语句
+        $sql = str_replace("COMMIT;\n", '', $sql);//兼容 navicat 导出的 insert 语句
+        $sql = str_replace($defaultCharset, $charset, $sql);
+        $sql = trim($sql);
+        //替换表前缀
+        $sql  = str_replace(" `{$defaultTablePre}", " `{$tablePre}", $sql);
+        $sqls = explode(";\n", $sql);
+        return $sqls;
+    }
+
+    return [];
+}
+/**
+ * 随机字符串生成
+ * @param int $len 生成的字符串长度
+ * @return string
+ */
+function lotus_random_string($len = 6)
+{
+    $chars    = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+        "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+        "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G",
+        "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+        "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2",
+        "3", "4", "5", "6", "7", "8", "9"
+    ];
+    $charsLen = count($chars) - 1;
+    shuffle($chars);    // 将数组打乱
+    $output = "";
+    for ($i = 0; $i < $len; $i++) {
+        $output .= $chars[mt_rand(0, $charsLen)];
+    }
+    return $output;
+}
+/**
+ * 获取网站根目录
+ * @return string 网站根目录
+ */
+function lotus_get_root()
+{
+    $request = \think\Request::instance();
+    $root    = $request->root();
+    $root    = str_replace('/index.php', '', $root);
+    if (defined('APP_NAMESPACE') && APP_NAMESPACE == 'api') {
+        $root = preg_replace('/\/api$/', '', $root);
+        $root = rtrim($root, '/');
+    }
+
+    return $root;
+}
+
+/**
+ * 设置系统配置，通用
+ * @param string $key 配置键值,都小写
+ * @param array $data 配置值，数组
+ * @param bool $replace 是否完全替换
+ * @return bool 是否成功
+ */
+function lotus_set_option($key, $data, $replace = false)
+{
+    if (!is_array($data) || empty($data) || !is_string($key) || empty($key)) {
+        return false;
+    }
+
+    $key        = strtolower($key);
+    $option     = [];
+    $findOption = \think\Db::name('option')->where('option_name', $key)->find();
+    if ($findOption) {
+        if (!$replace) {
+            $oldOptionValue = json_decode($findOption['option_value'], true);
+            if (!empty($oldOptionValue)) {
+                $data = array_merge($oldOptionValue, $data);
+            }
+        }
+
+        $option['option_value'] = json_encode($data);
+        \think\Db::name('option')->where('option_name', $key)->update($option);
+        \think\Db::name('option')->getLastSql();
+    } else {
+        $option['option_name']  = $key;
+        $option['option_value'] = json_encode($data);
+        \think\Db::name('option')->insert($option);
+    }
+    cache('cmf_options_' . $key, null);//删除缓存
+    return true;
+}
