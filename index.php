@@ -16,6 +16,6 @@ define('APP_PATH', __DIR__ . '/application/');
 // 定义CMF根目录,可更改此目录
 define('LOTUS_ROOT', __DIR__ . '/');
 // 定义lotusAdmin 版本号
-define('LOTUS_VERSION', '1.1.01256');
+define('LOTUS_VERSION', '1.2.0');
 // 加载框架引导文件
 require __DIR__ . '/thinkphp/start.php';
