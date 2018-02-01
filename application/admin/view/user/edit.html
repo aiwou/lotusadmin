@@ -59,7 +59,6 @@ header {
 		    </div>
 	  	</div>
 
-
 		<div class="layui-form-item">
 		    <div class="layui-input-block">
 		      <button style="margin-left: 20%" class="layui-btn" lay-submit="" lay-filter="toSubmit">提交</button>
@@ -67,33 +66,28 @@ header {
 		    </div>
 		</div>
 
-
 	</form>
 </div>
 </body>
-
-
 <script type="text/javascript">
-		
-
-		var form = layui.form;
-		var layer = layui.layer;
-			  //自定义验证规则
-			  form.verify({
+	$(document).ready(function(){
+    		var form = layui.form;
+			var layer = layui.layer;
+			//自定义验证规则
+			form.verify({
 			    username: function(value){
 			      if(value.length < 5){
 			        return '标题至少得5个字符啊';
 			      }
 			    }
 			  });
-		//监听提交
-		form.on('submit(demo1)', function(data){
-		      layer.alert(JSON.stringify(data.field), {
-		      title: '最终的提交信息'
-		    })
-		    return false;
-		  });
-	$(document).ready(function(){ 
+			//监听提交
+			form.on('submit(demo1)', function(data){
+			      layer.alert(JSON.stringify(data.field), {
+			      title: '最终的提交信息'
+			    })
+			    return false;
+			  });
 	    	// var options = { 
 	        // target:
 	        // target element(s) to be updated with server response 
@@ -141,4 +135,8 @@ header {
 	    $('#mainForm').ajaxForm(options).submit(function(data){}); 
 	});
 </script>
-{include file='public/foot'}
+
+<!-- {include file='public/foot'} -->
+
+<script src="__module__/layui/layui.js" charset="utf-8"></script>
+</html>
