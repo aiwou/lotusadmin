@@ -16,7 +16,7 @@ class Base extends Controller
     {
         $module = $this->request->module();
         if (!lotus_is_installed() && $module != 'install') {
-            header('Location: ' . lotus_get_root() . '/?s=install');
+            header('Location: ' . lotus_get_root() . 'index.php/install');
             exit;
         }
     }
