@@ -29,7 +29,7 @@
 
 
 ## 安装步骤（按照步骤来）：
-1. 设置域名到根目录，iframe设置到'/'根目录，page需要设置到'/public'目录
+1. 设置域名到根目录
 2. Linux环境下runtime文件夹给予777权限
 3. 访问后台是在域名加admin，例如http://www.lotusadmin.top/admin
  
