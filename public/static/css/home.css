@@ -348,7 +348,7 @@ html, body {
 }
 
 .page1 {
-   /* background-image: url(/public/static/images/man.gif);*/
+    background-image: url(/public/static/images/man.gif);
 }
 
 .code {
