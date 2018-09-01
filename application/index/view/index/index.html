@@ -94,9 +94,9 @@
     </div>
 </div>
 
-<div class="notice">
+<!-- <div class="notice">
     <img width="360px" height="" src="./public/pic/wechat.jpg">
-</div>
+</div> -->
 
 {/block}
 
@@ -131,15 +131,15 @@
     function show_tip(){
        var index1 =  layer.confirm('各位用户老爷们,看在我这么努力的份上,无论如何给颗star吧！！！',
             {title:'别急悟空！',
-            btn:['一定给','看心情咯']},
+            btn:['一定给','小小的帮助一把']},
                 function(){
-                    layer.msg('跳转中~~~',{offset:'t',icon:1},function(){
+                    layer.msg('跳转仓库下载页中~~~',{offset:'t',icon:1},function(){
                          location.href = 'https://gitee.com/wenhainan/LotusAdmin';
                     });
                 },
                 function(){
-                    layer.msg('嗷嗷嗷~~~大爷求你，给颗star吧！！',{icon:5,time:5000,offset:'t'},function(){
-                        location.href = 'https://gitee.com/wenhainan/LotusAdmin';
+                    layer.msg('跳往辣眼睛的2345导航页,为群主带来0.05元的收入！！',{icon:1,time:5000,offset:'t'},function(){
+                        location.href = 'https://www.2345.com/?kwenhainan';
                     })
                 }
             );
