@@ -4,3 +4,4 @@ composer.lock
 .user.ini
 404.html
 .well-known
+sftp-config.json
