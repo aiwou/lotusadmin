@@ -4,9 +4,9 @@
     <div class="x-body">
 
 
-       <button class="layui-btn layui-btn-small "
+       <button class="layui-btn layui-btn-sm "
         onclick="x_admin_show('上传图片','upload.html',500,500)"></i>上传图片</button>
-        <button onclick="javascript:location.reload()" class="layui-btn layui-btn-small">刷新</button>
+        <button onclick="javascript:location.reload()" class="layui-btn layui-btn-sm">刷新</button>
 
       <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$data->total()}</i>条</span>
 
@@ -32,7 +32,7 @@
                 <td class="url"><img src="{$vo.url}" alt=""> </td>
                 <td>{$vo.size}</td>
                 <td>
-                  <button onclick="del(this,{$vo.id})" class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
+                  <button onclick="del(this,{$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
                </td>
             </tr>
         {/volist}

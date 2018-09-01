@@ -2,8 +2,8 @@
 
 <body>
     <div class="x-body" >
-    <button class="layui-btn layui-btn-small " onclick="x_admin_show('添加接口','show_add_app.html',500,320)"></i>添加应用</button>
-    <button onclick="javascript:location.reload()" class="layui-btn layui-btn-small">刷新</button>
+    <button class="layui-btn layui-btn-sm " onclick="x_admin_show('添加接口','show_add_app.html',500,320)"></i>添加应用</button>
+    <button onclick="javascript:location.reload()" class="layui-btn layui-btn-sm">刷新</button>
     <span class="x-right" style="line-height:40px">共有数据:{$data->count()}</span>
     <table class="layui-table">
         <thead>
@@ -21,16 +21,16 @@
                     <td>{$vo.name}</td>
                     <td>{$vo.secret}</td>
                     <td>
-                        <a type="button" href="index.html" class="layui-btn layui-btn-mini">
+                        <a type="button" href="index.html" class="layui-btn layui-btn-xs">
                             <i class="layui-icon" style="font-size: 30px; ">&#xe63c;</i>
                             进入仓库
                         </a>
                     </td>
                     <td>
                         <button type="button" onclick="x_admin_show('编辑应用',
-                        'show_edit_app.html?id={$vo.id}',500,300)" class="layui-btn layui-btn-mini">编辑
+                        'show_edit_app.html?id={$vo.id}',500,300)" class="layui-btn layui-btn-xs">编辑
                         </button>
-                        <a type="button" onClick="delete_app({$vo.id})" class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
+                        <a type="button" onClick="delete_app({$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
                     </td>
                 </tr>
             {/volist}

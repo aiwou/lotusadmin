@@ -18,13 +18,13 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">Lotus-admin-1.0</a></div>
+        <div class="logo"><a href="./index.html">LotusAdmin-v1.1</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
         <ul class="layui-nav left fast-add" lay-filter="">
           <li class="layui-nav-item">
-            <a href="javascript:;">+新增</a>
+            <a href="javascript:;">工具</a>
 
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a onclick="x_admin_show('资讯','http://www.baidu.com')"><i class="iconfont">&#xe6a2;</i>资讯</a></dd>
@@ -130,9 +130,15 @@
     <!-- 右侧主体开始 -->
     <div class="page-content">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
-          <ul class="layui-tab-title">
-            <li class="layui-this">我的桌面</li>
+            
+           <ul class="layui-tab-title">
+            <li class="home layui-this"><i class="layui-icon">&#xe665;</i>控制台</li>
           </ul>
+
+          <!-- 如果想关闭桌面用下面这段代码 -->
+           <!--   <ul class="layui-tab-title">
+            <li class="layui-this">我的桌面</li>
+          </ul> -->
           <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
                 <iframe src="{:url('admin/index/welcome')}" frameborder="0" scrolling="yes" class="x-iframe"></iframe>

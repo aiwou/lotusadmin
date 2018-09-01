@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `lotus_auth_rule` (
 --
 
 INSERT INTO `lotus_auth_rule` (`id`, `name`, `title`, `type`, `status`, `pid`, `icon`, `sort`, `condition`) VALUES
-(1, 'admin/user/default', '用户管理', 1, 1, 0, 'xe68e', 10, ''),
+(1, 'admin/user/default', '用户管理', 1, 1, 0, 'xe66f', 10, ''),
 (2, 'admin/user/userlist', '用户列表', 1, 1, 1, '', 0, ''),
 (3, 'admin/auth/index', '权限管理', 1, 1, 1, '', 0, ''),
 (4, 'admin/auth/showRole', '角色列表', 1, 1, 1, '', 0, ''),
