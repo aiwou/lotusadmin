@@ -129,18 +129,16 @@
 
     
     function show_tip(){
-       var index1 =  layer.confirm('各位用户老爷们,看在我这么努力的份上,无论如何给颗star吧！！！',
+       var index1 =  layer.confirm('<b>老铁!服务器钱也给不起了,如果同样贫穷的的你,无法给予捐赠,也请点击下传送门吧.您也可以设置下面传送门的导航页为浏览器主页,为开发者每天贡献0.05元的微薄收入<br><a href="https://www.2345.com/?kwenhainan"  target="_target" style=color:red>(*￣︶￣)导航传送门</a> </b>',
             {title:'别急悟空！',
-            btn:['一定给','小小的帮助一把']},
+            btn:['下载LotusAdmin','小小的帮助开发者']},
                 function(){
                     layer.msg('跳转仓库下载页中~~~',{offset:'t',icon:1},function(){
                          location.href = 'https://gitee.com/wenhainan/LotusAdmin';
                     });
                 },
                 function(){
-                    layer.msg('跳往辣眼睛的2345导航页,为群主带来0.05元的收入！！',{icon:1,time:5000,offset:'t'},function(){
-                        location.href = 'https://www.2345.com/?kwenhainan';
-                    })
+                    window.open("https://www.2345.com/?kwenhainan");   
                 }
             );
     }
