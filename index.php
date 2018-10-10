@@ -19,3 +19,5 @@ define('LOTUS_ROOT', __DIR__ . '/');
 define('LOTUS_VERSION', '1.2.0');
 // 加载框架引导文件
 require __DIR__ . '/thinkphp/start.php';
+?>
+
