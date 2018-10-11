@@ -4,7 +4,7 @@ function showCheck(a){
 	ctx.clearRect(0,0,1000,1000);
 	ctx.font = "80px 'Microsoft Yahei'";
 	ctx.fillText(a,0,100);
-	ctx.fillStyle = "white";
+	// ctx.fillStyle = "white";
 }
 var code ;    
 function createCode(){       
