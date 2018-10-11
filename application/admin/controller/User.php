@@ -62,6 +62,7 @@ class User extends Controller
         $this->assign('users', $data);
         return $this->fetch();
     }
+
     //打开新增界面
     public function showAdd()
     {
@@ -72,6 +73,8 @@ class User extends Controller
         ->select();
         return $this->fetch('add',['auth_group'=>$auth_group]);
     }
+
+    
     //增加用户
     public function addUser()
     {
