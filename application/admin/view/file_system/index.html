@@ -4,11 +4,11 @@
     <div class="x-body">
 
 
-       <button class="layui-btn layui-btn-sm "
-        onclick="x_admin_show('上传图片','upload.html',500,500)"></i>上传图片</button>
-        <button onclick="javascript:location.reload()" class="layui-btn layui-btn-sm">刷新</button>
+       <button class="layui-btn "
+        onclick="x_admin_show('上传图片','upload.html',300,150)"></i>上传图片</button>
+       
 
-      <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$data->total()}</i>条</span>
+      <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$data->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="layui-icon layui-icon-refresh"></i></button></span>
 
     <table class="layui-table">
         <thead>
@@ -118,8 +118,8 @@
           layer.open({
             type: 1,
             skin: '', //加上边框
-            area: ['900px', '648px'], //宽高
-            content: "<center style='margin-top:40px;'><img width='800' height='500' src="+url+"></center>"
+            area: ['100%', '100%'], //宽高
+            content: "<center style='margin-top:40px;'><img height='500px' src="+url+"></center>"
           });
       }
 

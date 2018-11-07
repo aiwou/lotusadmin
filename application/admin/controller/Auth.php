@@ -15,7 +15,7 @@ class auth extends Main
     }
     //展示权限界面
     function showAdd(){
-    	$auth = Db::name('auth_rule')->order(['sort' => 'ASC'])->select();
+    	$auth = Db::name('auth_rule')->order(['sort' => 'asc'])->select();
         $auth = array2Level($auth);
     	return  $this->fetch('add',['auth'=>$auth]);
     }
@@ -70,9 +70,9 @@ class auth extends Main
         $post =  $this->request->post();
         $id = $post['id'];
         /*start 演示数据保护，开发可以删除*/
-        if($id<203){
-            $this->error('很抱歉,系统默认权限无法编辑');
-        }
+        // if($id<203){
+        //     $this->error('很抱歉,系统默认权限无法编辑');
+        // }
         /*end*/
         $validate = validate('auth');
         $validate->scene('edit');

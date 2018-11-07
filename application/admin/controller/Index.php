@@ -17,5 +17,5 @@ class Index extends Main
     {
         return $this->fetch();
     }
-
+   
 }

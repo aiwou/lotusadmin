@@ -74,20 +74,20 @@ header {
     		var form = layui.form;
 			var layer = layui.layer;
 			//自定义验证规则
-			form.verify({
-			    username: function(value){
-			      if(value.length < 5){
-			        return '标题至少得5个字符啊';
-			      }
-			    }
-			  });
+			// form.verify({
+			//     username: function(value){
+			//       if(value.length < 5){
+			//         return '标题至少得5个字符啊';
+			//       }
+			//     }
+			//   });
 			//监听提交
-			form.on('submit(demo1)', function(data){
-			      layer.alert(JSON.stringify(data.field), {
-			      title: '最终的提交信息'
-			    })
-			    return false;
-			  });
+			// form.on('submit(demo1)', function(data){
+			//       layer.alert(JSON.stringify(data.field), {
+			//       title: '最终的提交信息'
+			//     })
+			//     return false;
+			//   });
 	    	// var options = { 
 	        // target:
 	        // target element(s) to be updated with server response 

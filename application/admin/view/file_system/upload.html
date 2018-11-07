@@ -6,7 +6,7 @@
 </head>
 <body>
 
- <div id="uploader-demo" style="margin-top: 20px;margin-left:20px;">
+ <div id="uploader-demo" style="margin-top: 17px;margin-left:100px;">
      <!--用来存放item-->
          <div  id="fileList" class="uploader-list">
          </div>
@@ -60,10 +60,10 @@
                      $img.replaceWith('<span>不能预览</span>');
                      return;
                  }
-                 $img.attr( 'src', src );
+                 // $img.attr( 'src', src );
              }, thumbnailWidth, thumbnailHeight );
              //提示
-             layer.msg('上传1张图片成功(倒数3秒关闭)',{},function(){
+             layer.msg('上传1张图片成功',{time:1000},function(){
                 x_admin_close();
                 parent.location.reload();
              });

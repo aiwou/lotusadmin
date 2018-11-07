@@ -141,7 +141,7 @@ return $config = [
     // 视图输出字符串内容替换
     'view_replace_str'       => [
         '__static__'=>'/public/static',
-        '__module__'=>'/public/static/module',
+        '__module__'=>'/public/static/lib',
         '__js__'=>'/public/static/js',
         '__css__'=>'/public/static/css',
         '__images__'=>'/public/static/images',
