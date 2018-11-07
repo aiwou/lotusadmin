@@ -1,12 +1,12 @@
 {include file="public/head"}
     <body>
     <div class="x-body" >
-
-
-        <button class="layui-btn " onclick="x_admin_show('添加菜单','showAdd.html',500,460)"><i class="layui-icon layui-icon-add-1"></i></button>
         
-        <span class="x-right" style="line-height:40px">共有数据:10条<button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
-
+        <div class="lotus-nav layui-row layui-form-item" >
+            <button class="layui-btn layui-btn-sm" onclick="x_admin_show('添加菜单','showAdd.html',500,460)"><i class="layui-icon layui-icon-add-circle"></i></button>
+            <span class="x-right" >共有数据:{:count($auth)}条<button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
+        </div>
+     
     <table class="layui-table">
         <thead>
           <tr>

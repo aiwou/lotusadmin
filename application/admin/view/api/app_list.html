@@ -2,9 +2,16 @@
 
 <body>
     <div class="x-body" >
-    <button class="layui-btn  " onclick="x_admin_show('添加应用','show_add_app.html',500,320)"><i class="layui-icon layui-icon-add-1"></i></button>
-    
-    <span class="x-right" style="line-height:40px">共有数据:{$data->count()} <button onclick="javascript:location.reload()" class="layui-btn-default"> <i class="icon iconfont">&#xe6aa;</i> </button></span>
+
+
+
+    <div class="lotus-nav">
+            <button class="layui-btn-sm  layui-btn " onclick="x_admin_show('添加应用','show_add_app.html',500,320)"><i class="layui-icon layui-icon-add-circle"></i></button>
+            <span class="x-right" style="line-height:40px">共有数据:{$data->count()} <button onclick="javascript:location.reload()" class="layui-btn-default"> <i class="icon iconfont">&#xe6aa;</i> </button></span>
+
+    </div>
+
+  
     <table class="layui-table">
         <thead>
           <tr>

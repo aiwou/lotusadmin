@@ -2,14 +2,11 @@
     <body>
     <link rel="stylesheet" type="text/css" href="__static__/css/webuploader.css" />
     <div class="x-body">
-
-
-       <button class="layui-btn "
-        onclick="x_admin_show('上传图片','upload.html',300,150)"></i>上传图片</button>
-       
-
-      <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$data->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="layui-icon layui-icon-refresh"></i></button></span>
-
+      <div class="lotus-nav">
+            <button class="layui-btn  layui-btn-sm"
+              onclick="x_admin_show('上传图片','upload.html',300,150)"></i>上传图片</button>
+            <span class="x-right" >共有数据:<i class="i_count">{$data->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="layui-icon layui-icon-refresh"></i></button></span>
+      </div>
     <table class="layui-table">
         <thead>
           <tr>
@@ -17,19 +14,21 @@
               <div class="header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>ID</th>
-            <th>URL(双击放大)</th>
+            <th>图片(单击)</th>
+            <th>URL</th>
             <th>Size</th>
             <th>操作</th>
         </thead>
         <tbody>
 
         {volist name="data" id="vo"}
-            <tr id='{$vo.id}' ondblclick="tClick({$vo.id})">
+            <tr id='{$vo.id}' >
                 <td>
                   <div class="layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{$vo.id}</td>
-                <td class="url"><img src="{$vo.url}" alt=""> </td>
+                <td class="url" ><img onclick="tClick({$vo.id})" id='img-{$vo.id}' src="{$vo.url}" alt=""> </td>
+                <td>{php} $request =  \think\Request::instance(); echo $request->domain(); {/php}{$vo.url}</td>
                 <td>{$vo.size}</td>
                 <td>
                   <button onclick="del(this,{$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
@@ -115,12 +114,24 @@
       function tClick(id){
           var url = $('#'+id).children('td').children('img').attr('src');
           //页面层
+          // layer.open({
+          //   title:'图片',
+          //   type: 1,
+          //   skin: '', //加上边框
+          //   area: ['50%', '60%'], //宽高
+          //   content: "<center style=''><img  src="+url+"></center>"
+          // });
+          //页面层-佟丽娅
           layer.open({
             type: 1,
-            skin: '', //加上边框
-            area: ['100%', '100%'], //宽高
-            content: "<center style='margin-top:40px;'><img height='500px' src="+url+"></center>"
+            title: '图片',
+            closeBtn: 1,
+            area: ['90%', '100%'], //宽高
+            skin: '', //没有背景色
+            // shadeClose: true,
+            content: "<center style='margin-top:10px'><img style=height:700px; src="+url+"></center>"
           });
+
       }
 
     </script>

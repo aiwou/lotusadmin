@@ -1,10 +1,10 @@
 {include file="public/head"}
 <div class="x-body">
-    <div>
+    <div style="margin-left: 80px;">
     	<ul id="tree" class="ztree"></ul>
     </div>
     <div>
-    	<button id="auth-btn"  class="layui-btn layui-btn-sm">提交</button>
+    	<button id="auth-btn"  style="float: right;" class="layui-btn layui-btn-sm">提交</button>
     </div>
 </div>
 {include file="public/foot"}   
@@ -22,7 +22,7 @@ $(function(){
                 enable: true
             },
             view: {
-                dblClickExpand: false,
+                dblClickExpand: true,
                 showLine: true,
                 showIcon: true,
                 selectedMulti: false

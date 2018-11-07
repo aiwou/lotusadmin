@@ -7,6 +7,9 @@
      input {
         padding-left: 5px;
      }
+     .lotus-input{
+        height: 30px;
+     }
   </style>
   <body>
     <div class="x-body">
@@ -17,15 +20,12 @@
                  <button style="margin-left: 10px;" class="layui-btn" onclick="addRole()"></i>添加角色</button>
           <button onclick="javascript:location.reload()" class="layui-btn"><i class="icon iconfont">&#xe6aa;</i></button>
           </div> -->
-        
-
-        <div   class="layui-row layui-form-item">
+        <div   class="layui-row layui-form-item lotus-nav">
            <div class="layui-input-inline">
-              <input id="role_name" name="role_name"   class="layui-input"  placeholder="请输入角色名称进行添加">
+              <input id="role_name" name="role_name"   class="layui-input lotus-input"  placeholder="请输入角色名称进行添加">
             </div>
-          <button style="margin-left: 10px;" class="layui-btn" onclick="addRole()"><i class="layui-icon layui-icon-add-1"></i></button>
-         
-          <span class="x-right" style="line-height:40px">共有数据:{$role->total()}条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
+          <button style="margin-left: 10px;" class="layui-btn layui-btn-sm" onclick="addRole()"><i class="layui-icon layui-icon-add-1"></i></button>
+          <span class="x-right" >共有数据:{$role->total()}条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
         </div>
 
     <table class="layui-table">
@@ -49,7 +49,7 @@
               {/eq}
            </td> 
             <td>
-                <button class="layui-btn layui-btn-xs" onclick="x_admin_show('用户授权','showAuth.html?id={$vo.id}',500,350)">授权</button>
+                <button class="layui-btn layui-btn-xs" onclick="x_admin_show('用户授权','showAuth.html?id={$vo.id}',350,350)">授权</button>
                 <button class="layui-btn layui-btn-xs" onclick="x_admin_show('角色编辑','showRoleEdit.html?id={$vo.id}',500,250)">编辑</button>
                 <button onclick="delRole(this,{$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
              </td>

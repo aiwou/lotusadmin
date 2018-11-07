@@ -1,25 +1,25 @@
 {include file="public/head"}
     <body>
     <div class="x-body">
+      <div  class="lotus-nav" >
 
-      <div   class="layui-row layui-form-item" >
-          <blockquote class="layui-elem-quote" style="border-left: 0px solid #009688;">
-            <button class="layui-btn " 
+            <button class="layui-btn  layui-btn-sm" 
             onclick="x_admin_show('添加用户','showAdd.html',500,410)">
-               <i class="layui-icon layui-icon-add-1"></i>
+               <i class="layui-icon layui-icon-add-circle"></i>
             </button>
+
+            <div class="layui-input-inline">
+              <input id="" name=""   class="layui-input lotus-input"  placeholder="请输入登录名搜索">
+            </div>
+
+            <button class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-search"></i></button>
             <!-- <button onclick="javascript:location.reload()" class="layui-btn  "><i class="icon iconfont ">&#xe6aa;</i></button> -->
-            <span class="x-right" style="line-height:40px">共有数据:<i class="i_count">{$users->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default "><i class="layui-icon layui-icon-refresh"></i></button></span>
-           </blockquote>
+            <span class="x-right">共有数据:<i class="i_count">{$users->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default "><i class="layui-icon layui-icon-refresh"></i></button></span>
+       
        </div>
 
 
-      <div   class="layui-row layui-form-item">
-            <div class="layui-input-inline">
-              <input id="" name=""   class="layui-input"  placeholder="请输入登录名搜索">
-            </div>
-            <button class="layui-btn"><i class="layui-icon layui-icon-search"></i></button>
-      </div>
+    
 
     <table class="layui-table">
         <thead>
