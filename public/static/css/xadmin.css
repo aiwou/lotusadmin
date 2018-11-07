@@ -524,3 +524,7 @@ table th, table td {
     }
 }
 
+
+  .disabled>span{
+          color: #ccc;
+      }
