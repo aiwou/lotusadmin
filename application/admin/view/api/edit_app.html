@@ -15,20 +15,20 @@
 
             <div class="layui-form-item">
                 <label class="layui-form-label">
-                    appid(系统)
+                    APPID
                 </label>
                 <div class="layui-input-block">
-                    <input style="color:blue" id="app_id" readonly value="{$data.app_id}" autocomplete="off" class="layui-input"  lay-verify="required" name="app_id" type="text">
+                    <input style="color:blue" id="app_id"  value="{$data.app_id}" autocomplete="off" class="layui-input"  lay-verify="required" name="app_id" type="text">
                     </input>
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">
-                    secret(系统)
+                    SECRET
                 </label>
                 <div class="layui-input-block">
-                    <input style="color:blue" id="secret" readonly value="{$data.secret}" autocomplete="off" class="layui-input"  lay-verify="required" name="secret" type="text">
+                    <input style="color:blue" id="secret"  value="{$data.secret}" autocomplete="off" class="layui-input"  lay-verify="required" name="secret" type="text">
                     </input>
                 </div>
             </div>
@@ -48,7 +48,7 @@
         
     </div>
 </body>
-
+{include file='public/foot'}
 <script type="text/javascript">
 	var form = layui.form;
 	var layer = layui.layer;
@@ -110,4 +110,3 @@
         }
     }
 </script>
-{include file='public/foot'}

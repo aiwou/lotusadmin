@@ -3,7 +3,7 @@
     <div class="x-body" >
 
 
-        <button class="layui-btn " onclick="x_admin_show('添加菜单','showAdd.html',500,460)"></i>添加菜单</button>
+        <button class="layui-btn " onclick="x_admin_show('添加菜单','showAdd.html',500,460)"><i class="layui-icon layui-icon-add-1"></i></button>
         
         <span class="x-right" style="line-height:40px">共有数据:10条<button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
 
@@ -63,6 +63,7 @@
 	      </div>
     </div>
 </body>
+{include file="public/foot"}
 <script>
 function deleteAuthRule(id){
     layer.confirm('确定要删除吗?',{
@@ -87,4 +88,3 @@ function deleteAuthRule(id){
         });
 }
 </script>
-{include file="public/foot"}

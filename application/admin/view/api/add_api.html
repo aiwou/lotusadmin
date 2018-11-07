@@ -48,8 +48,24 @@
                     </select>
                 </div>
             </div>
+            
+
 
             <div class="layui-form-item">
+                <label class="layui-form-label">选择框</label>
+                <div class="layui-input-block">
+                  <select name="city" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0">北京</option>
+                    <option value="1">上海</option>
+                    <option value="2">广州</option>
+                    <option value="3">深圳</option>
+                    <option value="4">杭州</option>
+                  </select>
+                </div>
+              </div>
+
+            <!--   <div class="layui-form-item">
                         <label class="layui-form-label">
                           AccessToken
                         </label>
@@ -58,8 +74,8 @@
                        <input type="checkbox" id="is_token" name="is_token" lay-skin="switch" lay-text="开启|关闭"  value='1'>
                 </div>
                  *测试环境推荐不开启Token验证
-            </div>
-            
+            </div> -->
+
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn"  lay-filter="toSubmit" lay-submit=""  style="margin-left: 33%">
@@ -75,7 +91,7 @@
         
     </div>
 </body>
-
+{include file='public/foot'}
 <script type="text/javascript">
 	var form = layui.form;
 	var layer = layui.layer;
@@ -153,4 +169,4 @@
         }
     }
 </script>
-{include file='public/foot'}
+

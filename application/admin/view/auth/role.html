@@ -21,9 +21,9 @@
 
         <div   class="layui-row layui-form-item">
            <div class="layui-input-inline">
-              <input id="role_name" name="role_name"   class="layui-input"  placeholder="请输入角色名称">
+              <input id="role_name" name="role_name"   class="layui-input"  placeholder="请输入角色名称进行添加">
             </div>
-          <button style="margin-left: 10px;" class="layui-btn" onclick="addRole()"></i>添加角色</button>
+          <button style="margin-left: 10px;" class="layui-btn" onclick="addRole()"><i class="layui-icon layui-icon-add-1"></i></button>
          
           <span class="x-right" style="line-height:40px">共有数据:{$role->total()}条 <button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
         </div>
@@ -64,6 +64,7 @@
         </div>
     </div>
 </body>
+{include file="public/foot"}
 <script>
 function addRole(){
   var role_name = $("#role_name").val();
@@ -134,4 +135,3 @@ function doChangeRoleStatus(id,status){
 }
 
 </script>
-{include file="public/foot"}
