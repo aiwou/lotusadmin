@@ -1,22 +1,35 @@
 {include file='public/head'}
 <body>
   
-    <div class="x-body">
-        <form action="edit_param" class="layui-form" id="mainForm" method="post" style="margin-right: 20px;">
+    <div class="x-body  layui-anim layui-anim-up">
+        <form action="edit_param" class="layui-form-pane" id="mainForm" method="post" style="margin-right: 20px;">
             
             <input type="hidden" name="api_id" value="{$api_id}">
 
+            
+
+             <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">文本域</label>
+                <div class="layui-input-block">
+                  <textarea style="font-size: 18px;" placeholder="请输入内容" class="layui-textarea" id="param" name="param">{$data['param']}</textarea>
+                </div>
+              </div>
+
+
            
-           
-            <div class="layui-form-item">
+      <!--       <div class="layui-form-item">
                 <label style="font-size: 14px;" class="layui-form-label">
                 参数
                 </label>
-                <div class="layui-input-block">
-                    <input style="font-size: 24px;"  autocomplete="off" value="{$data['param']}" class="layui-input" id="param" lay-verify="required" name="param" placeholder="例如:id:2|name:jack" type="text">
-                    </input>
-                </div>
-            </div>
+                <div class="layui-input-inline">
+
+                    <textarea  class="layui-textarea"  id="param" name="param"  >
+                            {$data['param']}
+                    </textarea> -->
+
+                 <!--    <input style="font-size: 24px;"  autocomplete="off" value="{$data['param']}" class="layui-input" id="param" lay-verify="required" name="param" placeholder="例如:id:2|name:jack" type="text"> -->
+           <!--      </div>
+            </div> -->
 
          
 

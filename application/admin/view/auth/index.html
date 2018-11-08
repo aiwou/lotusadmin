@@ -28,7 +28,7 @@
                                     <i class="layui-icon">
                                     <?php 
                                         if(empty($vo['icon'])){
-                                        echo '未设置'; 
+                                        echo '--'; 
                                     }else{
                                          echo '&#'.$vo['icon'].';';   
                                     }   
@@ -40,7 +40,7 @@
                                 <td>
                                     {php}
                                         if($vo['level']!==1){
-                                            echo '非顶级权限,参数无效';
+                                            echo '--';
                                     }else{
                                         echo $vo['sort'];
                                     }

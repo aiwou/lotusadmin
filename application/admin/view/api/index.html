@@ -5,7 +5,7 @@
           <legend>仓库</legend>
           <div class="layui-field-box">
               <button class="layui-btn layui-btn-sm " onclick="x_admin_show('添加接口','showAddApi.html',500,420)"><i class="layui-icon" style="font-size: 30px; ">&#xe61f;</i>添加接口</button>
-              *AcessToken(测试推荐禁用)
+              * 请输入正确的请求地址,否则会出现报错
         <button  onclick="javascript:window.location.href = '{:url("admin/api/app_list")}'" class="layui-btn layui-btn-sm x-right">
         <i class="layui-icon" style="font-size: 30px; ">&#xe65c;</i>返回  
         </button>
@@ -16,9 +16,10 @@
             <th>ID</th>
             <th>名称</th>
             <th>BASE_URL</th>
-            <th>hash</th>
+            <!-- <th>hash</th> -->
             <th>传输方式</th>
-            <th>AcessToken</th>
+            <!-- <th>AcessToken</th> -->
+            <th>状态</th>
             <th>参数</th>
             <th>测试</th>
             <th>操作</th>
@@ -29,9 +30,8 @@
                  <td>{$vo.id}</td>
                  <td>{$vo.name}</td>
                  <td>{$vo.base_url}</td>
-                 <td>{$vo.hash}</td>
-                 <td>{$vo.method}</td>
-
+                 <!-- <td>{$vo.hash}</td> -->
+                 <td>{$vo.method}  </td>
                  <td>
                     {eq name="vo.is_token" value="0"}
                     <button type="button" onClick="change_status('{$vo.id}','{$vo.is_token}')" class="layui-btn layui-btn-xs layui-btn-danger">禁用</button>
@@ -42,20 +42,15 @@
 
                 <td>{$vo.param}</td>
                 <td>
-                    <button type="button" onClick="x_admin_show('接口参数(多个参数用|分割)','param.html?id={$vo.id}',800,190)" class="layui-btn layui-btn-xs">测试参数</button> 
+                    <button type="button" onClick="x_admin_show('接口参数(多个参数用|分割)','param.html?id={$vo.id}',600,350)" class="layui-btn layui-btn-xs">测试参数</button> 
                     <button type="button" onClick="x_admin_show('测试结果','doTest.html?id={$vo.id}',800,390)" class="layui-btn layui-btn-xs">执行测试</button>
                 </td>  
                 <td>     
-                        
-                        <button type="button" onclick="x_admin_show('编辑菜单',
+                        <button type="button" onclick="x_admin_show('编辑接口',
                         'show_edit_api.html?id={$vo.id}',500,420)" class="layui-btn layui-btn-xs">编辑
                         </button>
-                       
-                         
                         <button type="button" onClick="delete_api({$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
-
                  </td>
-               
             </tr>
             {/volist}
         </tbody>

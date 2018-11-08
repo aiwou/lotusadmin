@@ -163,16 +163,18 @@ class api extends Main
 	 		$des = array();
 	 		foreach ($str as  $value) {
 	 			$de  =  explode(':', $value);
+	 			// var_dump($de);exit;
 	 			$des[$de[0]] = $de[1]; 
 	 		}
-	 		try{
-	 			$res = $this->doPost($data['base_url'],$des,'charset:utf-8');
-	 			return $res;
-	 		}catch(Exception $e){
-	 			print $e->getMessage();
-	 			exit;
-	 		}
-	 		
+
+ 		try{
+ 			$res = $this->doPost($data['base_url'],$des,'charset:utf-8');
+ 			return $res;
+ 		}catch(\Exception  $e){
+ 			print $e->getMessage();
+ 		}
+
+
  		}
  		return $this->fetch();
  	}
@@ -212,7 +214,14 @@ class api extends Main
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // 不从证书中检查SSL加密算法是否存在
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        $output = curl_exec($ch);
+
+        try {
+        	$output = curl_exec($ch);
+        } catch (Exception $e) {
+        	echo $e->getMessage();
+        }
+
+        
         curl_close($ch);
         return $output;
     }
