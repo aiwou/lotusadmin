@@ -1,20 +1,11 @@
 {include file='public/head'}
 
 <div class="x-body layui-anim-scaleSpring">
+
     <blockquote class="layui-elem-quote">
         <font style="font-size: 15px ;"> 欢迎使用LotusAdmin(v3.0)后台极速开发框架！开发者：<a target="_blank" href="https://www.waytomilky.com/" style="color:blue">闻海南</a>   官方售后qq群:</font><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e5fcff77e702a32b0aebba36f9daa43a4158d91141f9d7a3e2bd6cdeecc6840e"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LotusAdmin极速开发框架" title="LotusAdmin极速开发框架"></a>
     </blockquote>
      
-
-
-   <fieldset class="layui-elem-field">
-            <legend>图表统计</legend>
-            <div class="layui-field-box">
-                    <div id="container"  class="layui-col-md6" style="height: 380px;"></div>
-                    <div id="container-2"  class="layui-col-md6" style="height: 350px;"></div>
-            </div>
-        </fieldset>
-
 
     <fieldset class="layui-elem-field">
             <legend>数据统计</legend>
@@ -62,6 +53,18 @@
                 </div>
             </div>
         </fieldset>
+
+   <fieldset class="layui-elem-field">
+            <legend>图表统计</legend>
+            <div class="layui-field-box">
+                    <div id="container"  class="layui-col-md8" style="height: 380px;"></div>
+                     <div id="container-3"  class="layui-col-md3" style="height: 175px;"></div>
+
+                    <div id="container-2"  class="layui-col-md3" style="height: 175px;"></div>
+            </div>
+        </fieldset>
+
+
 
 
         <fieldset class="layui-elem-field">
@@ -333,31 +336,112 @@
 </div>
 {include file='public/foot'}
 <script type="text/javascript">
-    var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
-    var app = {};
 
-option = {     
- color: ['#009688'],     xAxis: {         type: 'category',
-boundaryGap: false,         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-'Sun']     },     yAxis: {         type: 'value'     },     series: [{
-data: [820, 932, 901, 934, 1290, 1330, 1320],         type: 'line',
-areaStyle: {}     }] };
-
-;
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+                
+          function randomData() {
+    now = new Date(+now + oneDay);
+    value = value + Math.random() * 21 - 10;
+    return {
+        name: now.toString(),
+        value: [
+            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+            Math.round(value)
+        ]
+    }
 }
+
+var data = [];
+var now = +new Date(2015, 9, 3);
+var oneDay = 24 * 3600 * 1000;
+var value = Math.random() * 1000;
+for (var i = 0; i < 1000; i++) {
+    data.push(randomData());
+}
+
+option = {
+    title: {
+        text: '订单量',
+        subtext: '实时数据',
+        textStyle:{
+            color:'black',
+        },
+        left:'45%'
+    },
+    color: ['#009688'],
+    tooltip: {
+        trigger: 'axis',
+        formatter: function (params) {
+            params = params[0];
+            var date = new Date(params.name);
+            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+        },
+        axisPointer: {
+            animation: false
+        }
+    },
+    xAxis: {
+        type: 'time',
+        splitLine: {
+            show: false
+        }
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: [0, '100%'],
+        splitLine: {
+            show: false
+        }
+    },
+    series: [{
+        name: '模拟数据',
+        type: 'line',
+        showSymbol: false,
+        hoverAnimation: true,
+        data: data
+    }]
+};
+
+setInterval(function () {
+
+    for (var i = 0; i < 5; i++) {
+        data.shift();
+        data.push(randomData());
+    }
+
+    myChart.setOption({
+        series: [{
+            data: data
+        }]
+    });
+}, 1000);
+
+
+
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+
+
+
+
+
 
 
 
 var dom2 = document.getElementById("container-2");
 var myChart2 = echarts.init(dom2);
-var app2 = {};
-option2 = null;
-app2.title = '坐标轴刻度与标签对齐';
-
 option2 = {
+     title: {
+        text: '销售额',
+        left:'45%'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
     color: ['#009688'],
     tooltip : {
         trigger: 'axis',
@@ -374,7 +458,7 @@ option2 = {
     xAxis : [
         {
             type : 'category',
-            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data : ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
             axisTick: {
                 alignWithLabel: true
             }
@@ -399,17 +483,55 @@ if (option2 && typeof option2 === "object") {
     myChart2.setOption(option2, true);
 }
 
-// setInterval(function () {
-//     for (var i = 0; i < 5; i++) {
-//         data.shift();
-//         data.push(randomData());
-//     }
 
-//     myChart.setOption({
-//         series: [{
-//             data: data
-//         }]
-//     });
-// }, 1000);
+
+option3 = {
+    title : {
+        text: '访问来源',
+        subtext: '来自爬虫数据',
+        // x:'center',
+        left:'45%'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    // legend: {
+    //     orient: 'vertical',
+    //     left: 'left',
+    //     data: ['直接访问','邮件营销','联盟广告']
+    // },
+    series : [
+        {
+            name: '访问来源',
+            type: 'pie',
+            radius : '50%',
+            center: ['50%', '60%'],
+            data:[
+                {value:205, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+
+
+};
+
+
+var dom3 = document.getElementById("container-3");
+var myChart3 = echarts.init(dom3);
+
+
+if (option3 && typeof option3 === "object") {
+    myChart3.setOption(option3, true);
+}
 
 </script>
