@@ -1,11 +1,19 @@
 {include file="public/head"}
     <body>
     <div class="x-body" >
-        <button class="layui-btn layui-btn-sm " onclick="">
-        </i>一键优化</button>
-        <button onclick="javascript:location.reload()" class="layui-btn layui-btn-sm">刷新</button>
-        <span class="x-right" style="line-height:40px">数据库表数量:{$count}</span>
+
+        <div class="lotus-nav layui-row ">
+            <button class="layui-btn layui-btn-sm" onclick="">数据库备份</button>
+            <span class="x-right" >数据库表数量:{$tableNum}
+                 <button onclick="javascript:location.reload()" class="layui-btn-default">
+                    <i class="icon iconfont">&#xe6aa;</i>
+                </button>
+            </span>
+        </div>
     
+   
+
+
 
     <table class="layui-table">
         <thead>
@@ -14,28 +22,59 @@
               <div class="header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
             <th>数据表</th>
+            <th>记录条数</th>
+            <th>占用空间</th>
+            <th>编码</th>
+            <th>创建时间</th>
             <th>操作</th>
         </thead>
         <tbody>
-          {foreach $db_names as $vo}
-            <tr>
-                <td>
-                  <div class="layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>{$vo}</td>
-                <td>
-                    <button class="layui-btn layui-btn-xs">优化</button>
-                    <button class="layui-btn layui-btn-xs">修复</button>
-                </td>
-            </tr>
-        {/foreach}
+         {empty name="list"}
+                            <tr>
+                                <td class="no-data" align="center" axis="col0" colspan="50">
+                                    <i class="fa fa-exclamation-circle"></i>没有符合条件的记录
+                                </td>
+                            </tr>
+                        {else/}
+                            {foreach name="list" item="vo" key="k" }
+                            <tr data-id="{$vo.Name}">
+                                <td>
+                                      <div class="layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+                                </td>
+                             <!--    <td class="sign">
+                                    <div class="w40 tc"><input type="checkbox" name="tables[]" value="{$vo.Name}" checked="checked"></div>
+                                </td> -->
+                                <td >
+                                    <div style="padding-left: 10px;">{$vo.Name}</div>
+                                </td>
+                                <td>
+                                    <div class="w80 tc">{$vo.Rows}</div>
+                                </td>
+                                <td>
+                                    <div class="w80 tc">{$vo.Data_length|format_bytes}</div>
+                                </td>
+                                <td>
+                                    <div class="w120 tc">{$vo.Collation}</div>
+                                </td>
+                                <td>
+                                    <div class="w160 tc">{$vo.Create_time}</div>
+                                </td>
+                                <td>
+                                    <div class="info w80 tc">未备份</div>
+                                </td>
+
+
+                             
+
+
+
+                               
+                            </tr>
+                            {/foreach}
+                        {/empty}
         </tbody>
       </table>
-	      <div class="page">
-	        <div>
-
-	        </div>
-	      </div>
+	    
     </div>
 </body>
 
