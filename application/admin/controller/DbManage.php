@@ -2,6 +2,7 @@
 namespace app\admin\controller;
 
 use think\Db;
+use org\Backup;
 
 const PREFIX = 'lotus_';
 
@@ -46,10 +47,16 @@ class DbManage extends Main
     }
 
 
+    //
+    public function backup(){
 
-        /**
+    }
+
+
+
+    /**
      * 数据备份
-     */
+    */
     public function export($tables = null, $id = null, $start = null)
     {
         //防止备份数据过程超时

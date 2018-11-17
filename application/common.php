@@ -295,3 +295,103 @@ function format_bytes($size, $delimiter = '') {
     for ($i = 0; $size >= 1024 && $i < 5; $i++) $size /= 1024;
     return round($size, 2) . $delimiter . $units[$i];
 }
+
+/**
+ * 获取缓存或者更新缓存，只适用于config表
+ * @param string $config_key 缓存文件名称
+ * @param array $data 缓存数据  array('k1'=>'v1','k2'=>'v3')
+ * @return array or string or bool
+ */
+function tpCache($config_key,$data = array()){
+    $param = explode('.', $config_key);
+    // $request = think\Request::instance();
+    // $module_name = $request->module();
+    // $controller_name = $request->controller();
+    // $action_name = $request->action();
+    if(empty($data)){
+        //如$config_key=shop_info则获取网站信息数组
+        //如$config_key=shop_info.logo则获取网站logo字符串
+        $config = F($param[0],'',TEMP_PATH);//直接获取缓存文件
+        if(empty($config)){
+            //缓存文件不存在就读取数据库
+            if ($param[0] == 'global') {
+                $param[0] = 'global';
+                $res = M('config')->where('is_del',0)->select();
+            } else {
+                $res = M('config')->where("inc_type",$param[0])->where('is_del',0)->select();
+            }
+            if($res){
+                foreach($res as $k=>$val){
+                    $config[$val['name']] = $val['value'];
+                }
+                F($param[0],$config,TEMP_PATH);
+            }
+            write_global_params();
+        }
+        if(!empty($param) && count($param)>1){
+            $newKey = strtolower($param[1]);
+            return isset($config[$newKey]) ? $config[$newKey] : '';
+        }else{
+            return $config;
+        }
+    }else{
+        //更新缓存
+        $result =  M('config')->where("inc_type", $param[0])->where('is_del',0)->select();
+        if($result){
+            foreach($result as $val){
+                $temp[$val['name']] = $val['value'];
+            }
+            $add_data = array();
+            foreach ($data as $k=>$v){
+                $newK = strtolower($k);
+                $newArr = array('name'=>$newK,'value'=>trim($v),'inc_type'=>$param[0]);
+                if(!isset($temp[$newK])){
+                    array_push($add_data, $newArr); //新key数据插入数据库
+                    // M('config')->add($newArr);//新key数据插入数据库
+                }else{
+                    if($v!=$temp[$newK])
+                        M('config')->where("name", $newK)->save($newArr);//缓存key存在且值有变更新此项
+                }
+            }
+            if (!empty($add_data)) {
+                M('config')->insertAll($add_data);
+            }
+            //更新后的数据库记录
+            $newRes = M('config')->where("inc_type", $param[0])->where('is_del',0)->select();
+            foreach ($newRes as $rs){
+                $newData[$rs['name']] = $rs['value'];
+            }
+        }else{
+            if ($param[0] != 'global') {
+                foreach($data as $k=>$v){
+                    $newK = strtolower($k);
+                    $newArr[] = array('name'=>$newK,'value'=>trim($v),'inc_type'=>$param[0]);
+                }
+                M('config')->insertAll($newArr);
+            }
+            $newData = $data;
+        }
+
+        $result = false;
+        // $global = F('global','',TEMP_PATH);
+        // if (!empty($global)) {
+        //     $global = array_merge($global, $newData);
+        //     $result = F('global',$global,TEMP_PATH);
+        // } else {
+            $res = M('config')->where('is_del',0)->select();
+            if($res){
+                $global = array();
+                foreach($res as $k=>$val){
+                    $global[$val['name']] = $val['value'];
+                }
+                $result = F('global',$global,TEMP_PATH);
+            } 
+        // }
+
+        if ($param[0] != 'global') {
+            $result = F($param[0],$newData,TEMP_PATH);
+        }
+        
+        return $result;
+    }
+}
