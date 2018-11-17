@@ -88,7 +88,7 @@
     function backup(tables){
         layer.load();
         $.ajax({
-            url: 'backup',
+            url: "{:url('admin/db_manage/backup')}",
             type: 'post',
             dataType: 'json',
             data: {tables: tables},
