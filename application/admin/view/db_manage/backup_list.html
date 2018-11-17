@@ -3,8 +3,9 @@
     <div class="x-body" >
 
         <div class="lotus-nav layui-row ">
-            <button class="layui-btn layui-btn-sm many-tables" onclick="">一键备份</button>
-            <span class="x-right" >数据库表数量:{$tableNum}
+              <p style="float: left;margin-top: 3px;"><span class="layui-badge-dot"></span>温馨提示:数据无价,请谨慎操作</p>
+            <span class="x-right" >数据库表数量:
+               
                  <button onclick="javascript:location.reload()" class="layui-btn-default">
                     <i class="icon iconfont">&#xe6aa;</i>
                 </button>
@@ -14,15 +15,9 @@
     <table class="layui-table">
         <thead>
           <tr>
-            <th>
-              <div class="header layui-form-checkbox layui-form-checked" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-            </th>
-            <th>数据表</th>
-            <th>记录条数</th>
-            <th>占用空间</th>
-            <th>编码</th>
-            <th>创建时间</th>
-            <th>操作</th>
+            <th>备份文件</th>
+            <th>文件大小</th>
+            <th width="15%">操作</th>
         </thead>
         <tbody>
          {empty name="list"}
@@ -33,30 +28,15 @@
                             </tr>
                         {else/}
                             {foreach name="list" item="vo" key="k" }
-                            <tr data-id="{$vo.Name}">
-                                <td>
-                                      <div data-table-name="{$vo.Name}" class="layui-form-checkbox layui-form-checked" lay-skin="primary" data-id='{$vo.Name}'><i class="layui-icon">&#xe605;</i></div>
-                                </td>
-                             <!--    <td class="sign">
-                                    <div class="w40 tc"><input type="checkbox" name="tables[]" value="{$vo.Name}" checked="checked"></div>
-                                </td> -->
+                            <tr >
                                 <td >
-                                    <div style="padding-left: 10px;">{$vo.Name}</div>
+                                    <div style="padding-left: 10px;">{$vo}</div>
                                 </td>
+                                <td>15k</td>
                                 <td>
-                                    <div class="w80 tc">{$vo.Rows}</div>
-                                </td>
-                                <td>
-                                    <div class="w80 tc">{$vo.Data_length|format_bytes}</div>
-                                </td>
-                                <td>
-                                    <div class="w120 tc">{$vo.Collation}</div>
-                                </td>
-                                <td>
-                                    <div class="w160 tc">{$vo.Create_time}</div>
-                                </td>
-                                <td>
-                                    <div class="info w80 tc">未备份</div>
+                                    <button class="layui-btn layui-btn-xs">下载</button>
+                                    <button class="layui-btn layui-btn-normal layui-btn-xs">恢复</button>
+                                    <button class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
                                 </td>
                             </tr>
                             {/foreach}
