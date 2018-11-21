@@ -101,7 +101,6 @@ class User extends Controller
     //编辑页面
     public function edit($id)
     {
-        
         $data = Db::name('User')
             ->alias('a')
             ->join('auth_group_access b','b.uid=a.id','left')

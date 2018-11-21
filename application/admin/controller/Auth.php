@@ -70,9 +70,9 @@ class auth extends Main
         $post =  $this->request->post();
         $id = $post['id'];
         /*start 演示数据保护，开发可以删除*/
-        // if($id<203){
-        //     $this->error('很抱歉,系统默认权限无法编辑');
-        // }
+        if($id<203){
+            $this->error('很抱歉,系统默认权限无法编辑');
+        }
         /*end*/
         $validate = validate('auth');
         $validate->scene('edit');
