@@ -244,7 +244,7 @@ class DbManage extends Main
     }
 
     function backup_list(){
-        $list = $this->MyScandir('data/sqldata');
+        $list = $this->MyScandir('data/sqldata',1);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -271,4 +271,26 @@ class DbManage extends Main
     }
 
 
+     /**
+     * 优化
+     */
+    public function optimize()
+    {
+        $strTable = input('table_name');
+
+        if (DB::query("OPTIMIZE TABLE {$strTable} ")) {
+            $this->success("数据表" . $strTable.'优化成功');
+        }
+    }
+    
+    /**
+     * 修复
+     */
+    public function repair()
+    {
+        $strTable = input('table_name');
+        if (DB::query("REPAIR TABLE {$strTable} ")) {
+            $this->success("数据表" . $strTable.'修复成功');
+        }
+    }
 }

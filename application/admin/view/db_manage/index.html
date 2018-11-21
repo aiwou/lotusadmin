@@ -4,6 +4,8 @@
 
         <div class="lotus-nav layui-row ">
             <button class="layui-btn layui-btn-sm many-tables" onclick="">一键备份</button>
+            <button  onclick="x_admin_show('备份列表','backup_list.html')" class="layui-btn layui-btn-sm layui-btn-normal " onclick="">备份列表</button>
+
             <span class="x-right" >数据库表数量:{$tableNum}
                  <button onclick="javascript:location.reload()" class="layui-btn-default">
                     <i class="icon iconfont">&#xe6aa;</i>
@@ -57,8 +59,8 @@
                                 </td>
                                 <td>
                                     <div class="info w80 tc">
-                                        <button class="layui-btn layui-btn-success layui-btn-xs">优化</button>
-                                        <button class="layui-btn layui-btn-normal layui-btn-xs">修复</button>
+                                        <button onclick="optimize('{$vo.Name}')" class="layui-btn layui-btn-success layui-btn-xs">优化</button>
+                                        <button  onclick="repair('{$vo.Name}')" class="layui-btn layui-btn-normal layui-btn-xs">修复</button>
                                     </div>
                                 </td>
                             </tr>
@@ -106,4 +108,42 @@
         })
         
     }
+
+
+    function optimize(table_name){
+        layer.load();
+        $.ajax({
+            url: "{:url('admin/db_manage/optimize')}",
+            type: 'post',
+            dataType: 'json',
+            data: {table_name: table_name},
+        })
+        .done(function(data) {
+            layer.closeAll('loading');
+            if(data.msg!==0){
+                layer.alert(data.msg);
+            }else{
+                layer.msg('失败');
+            }
+        }) 
+    }
+
+    function repair(table_name){
+        layer.load();
+        $.ajax({
+            url: "{:url('admin/db_manage/repair')}",
+            type: 'post',
+            dataType: 'json',
+            data: {table_name: table_name},
+        })
+        .done(function(data) {
+            layer.closeAll('loading');
+            if(data.msg!==0){
+                layer.alert(data.msg);
+            }else{
+                layer.msg('失败');
+            }
+        }) 
+    }
+
 </script>
