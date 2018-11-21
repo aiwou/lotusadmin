@@ -164,11 +164,25 @@ function x_admin_show(title,url,w,h,offset){
         fix: false, //不固定
         maxmin: true,
         shadeClose: true,
-        shade:0.4,
+        shade:0.2,
         title: title,
         content: url
     });
 }
+
+function lotus_show_full(title,url){
+    var index = layer.open({
+        type: 2,
+        content: url,
+        title: title,
+        shade:0.2,
+        shadeClose: true,
+        area: ['100%', '100%'],
+        maxmin: false
+    });
+    layer.full(index);
+}
+
 
 /*关闭弹出框口*/
 function x_admin_close(){
