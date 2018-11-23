@@ -261,9 +261,10 @@ class DbManage extends Main
      */
     private function MyScandir($FilePath = './', $Order = 0) {
         $FilePath = opendir($FilePath);
+        $fileArr = [];
         while ($filename = readdir($FilePath)) {
-            if($filename!=='.'&&$filename!=='..'){
-                $fileArr[] = $filename;
+            if($filename!=='.'&&$filename!=='..'&&$filename!=='.gitignore'){
+                array_push($fileArr, ['filename'=>$filename,'size'=>format_bytes( filesize(config('database')['db_backup'].DS.$filename))]);
             }
         }
         $Order == 0 ? sort($fileArr) : rsort($fileArr);
@@ -271,9 +272,9 @@ class DbManage extends Main
     }
 
 
-     /**
+    /**
      * 优化
-     */
+    */
     public function optimize()
     {
         $strTable = input('table_name');
@@ -291,6 +292,17 @@ class DbManage extends Main
         $strTable = input('table_name');
         if (DB::query("REPAIR TABLE {$strTable} ")) {
             $this->success("数据表" . $strTable.'修复成功');
+        }
+    }
+
+    /*删除*/
+    function delSql(){
+        $filename = input('filename');
+        $res =  unlink(config('database')['db_backup'].DS.$filename);
+        if($res){
+            $this->success('delete success');
+        }else{
+            $this->error('delete failure');
         }
     }
 }

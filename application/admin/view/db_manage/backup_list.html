@@ -30,13 +30,13 @@
                             {foreach name="list" item="vo" key="k" }
                             <tr >
                                 <td >
-                                    <div style="padding-left: 10px;">{$vo}</div>
+                                    <div style="padding-left: 10px;">{$vo.filename}</div>
                                 </td>
-                                <td>15k</td>
+                                <td>{$vo.size}</td>
                                 <td>
                                     <button onclick="javascript:layer.alert('演示数据保护')" class="layui-btn layui-btn-xs">下载</button>
-                                    <button class="layui-btn layui-btn-normal layui-btn-xs">恢复</button>
-                                    <button class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                                    <!-- <button class="layui-btn layui-btn-normal layui-btn-xs">恢复</button> -->
+                                    <button class="layui-btn layui-btn-danger layui-btn-xs" onclick="delSql('{$vo.filename}')">删除</button>
                                 </td>
                             </tr>
                             {/foreach}
@@ -81,6 +81,32 @@
                 layer.msg('备份失败');
             }
         })
+        
+    }
+    function delSql(filename){
+         layer.confirm('是否确认备份？', {
+          btn: ['确定','取消'] //按钮
+        }, function(){
+              $.ajax({
+            url: 'delSql',
+            type: 'post',
+            dataType: 'json',
+            data: {filename: filename},
+            })
+            .done(function(data) {
+                 if(data.code!==0){
+                    layer.msg(data.msg,{time:1000},function(){
+                        location.reload();
+                    });
+                 }else{
+                    layer.msg(data.msg);
+                 }
+            })
+
+        });
+
+
+      
         
     }
 </script>
