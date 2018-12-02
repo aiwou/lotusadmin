@@ -43,9 +43,9 @@
             <td>{$vo.title}</td> 
             <td>
               {eq name='$vo["status"]' value="1"}
-                <button  id="{$vo.id}" onclick='doChangeRoleStatus({$vo["id"]},1)' class="layui-btn layui-btn-xs">启用</button>
+                <span class="layui-badge layui-bg-green">启用</span>
               {else/}
-                <button  onclick='doChangeRoleStatus({$vo['id']},0)' class="layui-btn layui-btn-danger layui-btn-xs">禁用</button>
+                <span class="layui-badge">禁用</span>
               {/eq}
            </td> 
             <td>
