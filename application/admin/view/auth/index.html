@@ -3,7 +3,7 @@
     <div class="x-body" >
         
         <div class="lotus-nav layui-row layui-form-item" >
-            <button class="layui-btn layui-btn-sm" onclick="x_admin_show('添加菜单','showAdd.html',500,460)"><i class="layui-icon layui-icon-add-circle"></i></button>
+            <button class="layui-btn layui-btn-sm" onclick="x_admin_show('添加菜单','add.html',500,470)"><i class="layui-icon layui-icon-add-circle"></i></button>
             <span class="x-right" >共有数据:{:count($auth)}条<button onclick="javascript:location.reload()" class="layui-btn-default"><i class="icon iconfont">&#xe6aa;</i></button></span>
         </div>
      
@@ -48,7 +48,7 @@
                                 </td>
                                 <td> <!--<button type="button" class="btn btn-success">添加子菜单</button> <button type="button" class="btn btn-primary">编辑</button> <button type="button" class="btn btn-danger" onClick="delcfm('{:url(\'admin/menu/del\',[\'id\' => $vo[\'id\']])}','{$vo.title}')">删除</button>-->
                                     <button type="button" onclick="x_admin_show('编辑菜单',
-                                    'showEdit.html?id={$vo.id}',500,460)" class="layui-btn layui-btn-xs">编辑
+                                    'edit.html?id={$vo.id}',500,460)" class="layui-btn layui-btn-xs">编辑
                                     </button>
                                     <button type="button" onClick="deleteAuthRule({$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
                                 </td>

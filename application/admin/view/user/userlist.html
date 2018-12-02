@@ -4,7 +4,7 @@
       <div  class="lotus-nav" >
 
             <button class="layui-btn  layui-btn-sm" 
-            onclick="x_admin_show('添加用户','showAdd.html',500,410)">
+            onclick="x_admin_show('添加用户','addUser.html',500,410)">
                <i class="layui-icon layui-icon-add-circle"></i>
             </button>
 
@@ -56,7 +56,7 @@
               <td>{$vo.last_login_ip}</td>
 	            <td>
 
-	<button class="layui-btn layui-btn-xs" onclick="x_admin_show('编辑用户','edit.html?id={$vo.id}',500,410)">编辑</button>
+	<button class="layui-btn layui-btn-xs" onclick="x_admin_show('编辑用户','editUser.html?id={$vo.id}',500,410)">编辑</button>
 	             	<button onclick="delUser(this,{$vo.id})" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
 	           </td>
 	        </tr>

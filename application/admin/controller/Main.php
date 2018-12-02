@@ -9,6 +9,8 @@ use think\Session;
 
 class Main extends Controller
 {
+
+    protected $not_check;
     /**
      * 初始化
     */
@@ -19,11 +21,12 @@ class Main extends Controller
             header('Location: ' . lotus_get_root() . '/?s=install');
             exit;
         }
-
         $username  = session('username');
         if (empty($username)) {
             $this->redirect('admin/user/login');
         }
+        //排除权限
+        $this->not_check = config('not_check');
         $this->checkAuth();
         $this->getMenu();
     }
@@ -42,8 +45,7 @@ class Main extends Controller
         $controller = $this->request->controller();
         $action     = $this->request->action();
         // 排除权限
-        $not_check = ['admin/Index/index','admin/Index/welcome', 'admin/AuthGroup/getjson', 'admin/System/clear'];
-
+        $not_check = $this->not_check;
         if (!in_array($module . '/' . $controller . '/' . $action, $not_check)) {
             $auth     = new Auth();
             $admin_id = Session::get('user_id');

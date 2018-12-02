@@ -295,6 +295,15 @@ function format_bytes($size, $delimiter = '') {
     for ($i = 0; $size >= 1024 && $i < 5; $i++) $size /= 1024;
     return round($size, 2) . $delimiter . $units[$i];
 }
-
-
-
+//异常字符串处理
+function checkStr($str){
+    switch ($str) {
+        case strspn($str,'&#;')>0:
+            $str =  ltrim($str,'&#');
+            $str =  rtrim($str,';');
+            return $str;
+        default:
+            return $str;
+            break;
+    }
+}

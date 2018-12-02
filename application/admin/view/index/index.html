@@ -78,7 +78,7 @@
                                     <li>
                                             <a _href="{:url($v.name)}">
                                                 {if condition="empty($v['icon'])"}
-                                                      <i class="layui-icon"></i>
+                                                <i class="layui-icon">&#xe602;</i>
                                                 {else/}
                                                       <i class="layui-icon">&#{$v.icon};</i>
                                                  {/if}
@@ -88,7 +88,7 @@
                                               {foreach name="v['children']" item="vs"}
                                                 <li>
                                                     <a _href="{:url($vs.name)}">
-                                                    <i class="layui-icon">&#xe602;</i>
+                                                    <i class="layui-icon">&#xe63f;</i>
                                                         <cite> {$vs.title}</cite>
                                                     </a>
 
@@ -99,7 +99,7 @@
                                         {else/}
                                                     <li>
                                                         <a _href="{:url($v.name)}">
-                                                        <i class="layui-icon">&#xe602;</i>
+                                                            <i class="layui-icon">&#xe63f;</i>
                                                             <cite> {$v.title}</cite>
                                                         </a>
                                                     </li>

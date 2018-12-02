@@ -243,4 +243,13 @@ return $config = [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    //排除权限配置
+    'not_check'=>[
+        'admin/Index/index',
+        'admin/Index/welcome',
+        'admin/AuthGroup/getjson',
+        'admin/System/clear'
+    ]
+
 ];
