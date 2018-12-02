@@ -26,13 +26,13 @@
                                 <td>{$vo.name}</td>
                                 <td>
                                     <i class="layui-icon">
-                                    <?php 
+                                    {php} 
                                         if(empty($vo['icon'])){
-                                        echo '--'; 
+                                        echo ''; 
                                     }else{
                                          echo '&#'.$vo['icon'].';';   
                                     }   
-                                    ?>
+                                    {/php}
                                     </i>   
                                 </td>
                                 <td>{eq name='vo.status' value='1'}显示{else/}<font color="red">隐藏</font>{/eq}
@@ -40,7 +40,7 @@
                                 <td>
                                     {php}
                                         if($vo['level']!==1){
-                                            echo '--';
+                                            echo '';
                                     }else{
                                         echo $vo['sort'];
                                     }
