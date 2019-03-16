@@ -329,7 +329,6 @@
 </div>
 {include file='public/foot'}
 <script type="text/javascript">
-
             var dom = document.getElementById("container");
             var myChart = echarts.init(dom);
             var app = {};
@@ -414,15 +413,9 @@ setInterval(function () {
 
 
 
-            if (option && typeof option === "object") {
-                myChart.setOption(option, true);
-            }
-
-
-
-
-
-
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
 
 
 var dom2 = document.getElementById("container-2");

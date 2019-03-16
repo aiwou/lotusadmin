@@ -73,9 +73,13 @@
 </body>
 {include file="public/foot"}
 <script type="text/javascript">
+    layui.use('table', function(){
+          var table = layui.table;
+          //do something
+    });
+
+
     $(function(){
-
-
 
        $(".many-tables").click(function(event) {
          //询问框
