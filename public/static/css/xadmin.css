@@ -328,11 +328,12 @@ xblock{
     /*background: #fff url() 0 0 no-repeat;*/
 }
 .left-nav #nav li .opened .current{
-    
+    color: blue;
+    background: #fff url() 0 0 no-repeat;
 }
 .left-nav #nav li .sub-menu li:hover{
-    /*color: blue;*/
-     /*background: #fff url() 0 0 no-repeat;*/
+    color: blue;
+     background: #fff url() 0 0 no-repeat;
 }
 .left-nav #nav li .sub-menu li a{
     padding: 12px 15px 12px 30px;
