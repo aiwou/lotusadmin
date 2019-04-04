@@ -56,8 +56,14 @@ class User extends Controller
 
     public function userlist()
     {
+        $param = $this->request->get();
+        $where = [];
+        if(!empty($param['username'])){
+            $where['username'] = $param['username'];
+        }
         $data = Db::name('User')
             ->order('id asc')
+            ->where($where)
             ->paginate(12);
         $this->assign('users', $data);
         return $this->fetch();

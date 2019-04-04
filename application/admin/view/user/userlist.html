@@ -2,17 +2,16 @@
     <body>
     <div class="x-body">
       <div  class="lotus-nav" >
-
-            <button class="layui-btn  layui-btn-sm" 
+            <button class="layui-btn  layui-btn-sm"
             onclick="x_admin_show('添加用户','addUser.html',500,410)">
                <i class="layui-icon layui-icon-add-circle"></i>
             </button>
 
-            <div class="layui-input-inline">
-              <input id="" name=""   class="layui-input lotus-input"  placeholder="请输入登录名搜索">
-            </div>
+          <div class="layui-input-inline">
+              <input value="{php}echo isset($_GET['username'])?$_GET['username']:'';{/php}"  name="username"   class="layui-input lotus-input"  placeholder="请输入登录名搜索">
+          </div>
 
-            <button class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-search"></i></button>
+            <button class="layui-btn layui-btn-sm search-query"><i class="layui-icon layui-icon-search"></i></button>
             <!-- <button onclick="javascript:location.reload()" class="layui-btn  "><i class="icon iconfont ">&#xe6aa;</i></button> -->
             <span class="x-right">共有数据:<i class="i_count">{$users->total()}</i>条 <button onclick="javascript:location.reload()" class="layui-btn-default "><i class="layui-icon layui-icon-refresh"></i></button></span>
        
@@ -73,19 +72,11 @@
 </body>
 {include file="public/foot"}
     <script>
-     
-      layui.use(['laydate','form'], function(){
-        var laydate = layui.laydate;
-        //执行一个laydate实例
-        laydate.render({
-          elem: '#start' //指定元素
-        });
-        //执行一个laydate实例
-        laydate.render({
-          elem: '#end' //指定元素
-        });
-      });
 
+        $(".search-query").click(function () {
+            var username = $("input[name=username]").val();
+            window.location.href = 'userlist.html?username='+username;
+        });
 
        /*用户-停用*/
       function member_stop(obj,id){
