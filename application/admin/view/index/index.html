@@ -54,7 +54,7 @@
 
 
             <li class="layui-nav-item">
-                <a href="javascript:;"> <i class="layui-icon layui-icon-username"></i> {:session('username')}</a>
+                <a href="javascript:;"> <i class="layui-icon layui-icon-username">{:session('username')}</i> </a>
                 <dl class="layui-nav-child"> <!-- 二级菜单 -->
                   <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
                   <dd><a href="{:url('admin/user/logout')}">退出</a></dd>
