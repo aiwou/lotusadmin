@@ -39,9 +39,16 @@
 
         <ul class="layui-nav right " lay-filter="">
 
-          <li class="layui-nav-item to-index"><a href="/" target="_blank"> <i class="layui-icon layui-icon-home">前台</i>  </a></li>
 
-          <li class="layui-nav-item">
+            <li class="layui-nav-item ">
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-flag"> 消息</i><span class="layui-badge layui-bg-gray">6</span>
+                </a>
+            </li>
+            <li class="layui-nav-item"><a href="/" target="_blank"> <i class="layui-icon layui-icon-home"> 前台</i>  </a></li>
+
+
+            <li class="layui-nav-item">
             <a href="javascript:;"> <i class="layui-icon layui-icon-username"></i> {:session('username')}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
