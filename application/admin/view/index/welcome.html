@@ -3,8 +3,8 @@
 <div class="x-body layui-anim-scaleSpring">
 
     <blockquote class="layui-elem-quote">
-        程序猿基本礼仪<a href="https://gitee.com/wenhainan/LotusAdmin" target="_blank" style="color: green">点我<i class="layui-icon layui-icon-star-fill"></i></a>一下
-        <font style="font-size: 15px ;"> 欢迎使用LotusAdmin(v3.0)后台极速开发框架！开发者：<a target="_blank" href="https://www.waytomilky.com/" style="color:green">@闻海南</a> </font><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e5fcff77e702a32b0aebba36f9daa43a4158d91141f9d7a3e2bd6cdeecc6840e"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LotusAdmin极速开发框架" title="LotusAdmin极速开发框架"></a> <script   src='//gitee.com/wenhainan/LotusAdmin/star_widget_preview'></script>
+        支持开发者<a href="https://gitee.com/wenhainan/LotusAdmin" target="_blank" style="color: green">点我<i class="layui-icon layui-icon-star-fill"></i></a>一下
+        <font style="font-size: 15px ;"> 欢迎使用LotusAdmin({:LOTUS_VERSION})后台极速开发框架！开发者：<a target="_blank" href="https://www.waytomilky.com/" style="color:green">@闻海南</a> </font><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e5fcff77e702a32b0aebba36f9daa43a4158d91141f9d7a3e2bd6cdeecc6840e"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="LotusAdmin极速开发框架" title="LotusAdmin极速开发框架"></a> <script   src='//gitee.com/wenhainan/LotusAdmin/star_widget_preview'></script>
     </blockquote>
      
 
@@ -21,28 +21,28 @@
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>文章数</h3>
                                                 <p>
-                                                    <cite>66</cite></p>
+                                                    <cite>166</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>会员数</h3>
                                                 <p>
-                                                    <cite>12</cite></p>
+                                                    <cite>1223</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>回复数</h3>
                                                 <p>
-                                                    <cite>99</cite></p>
+                                                    <cite>299</cite></p>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
                                             <a href="javascript:;" class="x-admin-backlog-body">
                                                 <h3>商品数</h3>
                                                 <p>
-                                                    <cite>67</cite></p>
+                                                    <cite>167</cite></p>
                                             </a>
                                         </li>
                                     
@@ -80,22 +80,31 @@
             </div>
         </fieldset>
 
-
-
-
-    
-
-
-
-
     <fieldset class="layui-elem-field layui-field-title">
-        <legend>
-            请作者喝咖啡
-        </legend>
+        <legend>系统信息</legend>
         <div class="layui-field-box">
-            <img height="250px;" src="__images__/wechat.jpg">
+            <table class="layui-table">
+                <tbody>
+                <tr>
+                    <th>软件版本</th>
+                    <td>v{:LOTUS_VERSION}</td></tr>
+                <tr>
+                    <th>部署域名</th>
+                    <td>{php} echo \think\Request::instance()->doMain();  {/php}</td></tr>
+                <tr>
+                    <th>操作系统</th>
+                    <td>{:PHP_OS}</td></tr>
+                <tr>
+                    <th>PHP版本</th>
+                    <td>{:PHP_VERSION}</td></tr>
+                <tr>
+                    <th>服务器时间</th>
+                    <td>{:date('Y-m-d H:i:s')}</td></tr>
+                </tbody>
+            </table>
         </div>
     </fieldset>
+
 
 
     <blockquote class="layui-elem-quote layui-quote-nm">
@@ -103,4 +112,5 @@
     </blockquote>
 </div>
 {include file='public/foot'}
+
 

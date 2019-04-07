@@ -244,7 +244,7 @@ class DbManage extends Main
     }
 
     function backup_list(){
-        $list = $this->MyScandir('data/sqldata',1);
+        $list = $this->MyScandir(LOTUS_ROOT.$this->config['path'],1);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -259,7 +259,7 @@ class DbManage extends Main
      * * @ 获取指定目录下的文件列表，返回数组
      * +------------------------------------------------------------------------
      */
-    private function MyScandir($FilePath = './', $Order = 0) {
+    private function MyScandir($FilePath = './' , $Order = 0) {
         $FilePath = opendir($FilePath);
         $fileArr = [];
         while ($filename = readdir($FilePath)) {

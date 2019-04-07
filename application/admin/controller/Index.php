@@ -17,5 +17,13 @@ class Index extends Main
     {
         return $this->fetch();
     }
+
+    /**
+     * 捐赠
+     */
+    public function donation()
+    {
+        return $this->fetch();
+    }
    
 }

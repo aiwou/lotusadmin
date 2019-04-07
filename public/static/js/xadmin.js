@@ -9,7 +9,7 @@
 $(function () {
 
     //加载弹出层
-    layui.use(['form','element'],
+    layui.use(['layer','form','element'],
     function() {
         layer = layui.layer;
         element = layui.element;
@@ -378,17 +378,51 @@ function x_admin_show(title,url,w,h,offset){
     if (h == null || h == '') {
         h=($(window).height() - 50);
     };
-    layer.open({
-        offset:offset +'px', //右下角弹出
-        type: 2,
-        area: [w+'px', h +'px'],
-        fix: false, //不固定
-        maxmin: true,
-        shadeClose: true,
-        shade:0.2,
-        title: title,
-        content: url
-    });
+    layui.use(['layer'],function() {
+        layer.open({
+            offset: offset + 'px', //右下角弹出
+            type: 2,
+            area: [w + 'px', h + 'px'],
+            fix: false, //不固定
+            maxmin: true,
+            shadeClose: true,
+            shade: 0.2,
+            title: title,
+            content: url
+        });
+    })
+}
+
+function lotus_show(title,url,w,h,offset){
+    if(offset==null||offset==''){
+        offset = 30;
+    }
+    if (title == null || title == ''){
+        title=false;
+    };
+    if (url == null || url == '') {
+        url="404.html";
+    };
+    if (w == null || w == '') {
+        w=($(window).width()*0.9);
+    };
+    if (h == null || h == '') {
+        h=($(window).height() - 50);
+    };
+    layui.use(['layer'],function(){
+        var layer = layui.layer;
+        layer.open({
+            offset:offset +'px', //右下角弹出
+            type: 2,
+            area: [w+'px', h +'px'],
+            fix: true, //不固定
+            maxmin: false,
+            shadeClose: true,
+            shade:0.2,
+            title: title,
+            content: url
+        });
+    })
 }
 
 function lotus_show_full(title,url){
