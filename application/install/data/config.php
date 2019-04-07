@@ -21,6 +21,6 @@ return [
     // 数据库表前缀
     'prefix'   => '#prefix#',
     "authcode" => '#authcode#',
-    'db_backup'=>'sql/data'
+    'db_backup'=>'data/sqldata'
     //#COOKIE_PREFIX#
 ];
