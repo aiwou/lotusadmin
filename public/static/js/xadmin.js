@@ -147,6 +147,7 @@ $(function () {
 
     //触发事件
   var tab = {
+
         tabAdd: function(title,url,id){
           //新增一个Tab项
           element.tabAdd('xbs_tab', {

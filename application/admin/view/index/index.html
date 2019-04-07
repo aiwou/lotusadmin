@@ -118,6 +118,7 @@
                                                       <i class="layui-icon">&#{$v.icon};</i>
                                                  {/if}
                                                  <cite> {$v.title}</cite>
+                                                <i class="iconfont nav_right">&#xe697;</i>
                                             </a>
                                              <ul class="sub-menu">
                                               {foreach name="v['children']" item="vs"}
@@ -125,6 +126,7 @@
                                                     <a _href="{:url($vs.name)}">
                                                     <i class="layui-icon">&#xe63f;</i>
                                                         <cite> {$vs.title}</cite>
+
                                                     </a>
 
                                                  </li >
@@ -200,4 +202,7 @@
 <script src="__module__/layui/layui.js" charset="utf-8"></script>
 <script type="text/javascript" src="__static__/js/xadmin.js"></script>
 <script type="text/javascript" src="__static__/js/lotus.js"></script>
+<script>
+
+</script>
 </html>
