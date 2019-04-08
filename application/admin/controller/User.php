@@ -43,6 +43,13 @@ class User extends Controller
                 Db::name('user')
                     ->where('username',$post['username'])
                     ->update(['last_login_ip'=>$_SERVER['REMOTE_ADDR'],'last_login_time'=>date('Y-m-d h:i:s',time())]);
+                $param = [
+                    'name'=>'登陆成功',
+                    'way'=>$this->request->path(),
+                    'username'=>$post['username'],
+                    'ip'=> $this->request->ip()
+                ];
+                \app\admin\model\UserLog::addLog($param);
                 $this->success('登陆成功', 'index/index');
             }
         }

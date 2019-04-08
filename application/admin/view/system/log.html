@@ -1,0 +1,56 @@
+{include file="public/head"}
+<body>
+<div class="x-body" >
+
+    <div class="lotus-nav layui-row ">
+        <button class="layui-btn layui-btn-sm many-tables" onclick="">一键备份</button>
+        <button  onclick="lotus_show('备份列表','backup_list.html',800,500)" class="layui-btn layui-btn-sm layui-btn-normal " onclick="">备份列表</button>
+
+        <span class="x-right" >数据库表数量:{$tableNum}
+                 <button onclick="javascript:location.reload()" class="layui-btn-default">
+                    <i class="icon iconfont">&#xe6aa;</i>
+                </button>
+            </span>
+    </div>
+
+    <table class="layui-table"  lay-data="{id: 'test',limit:30}">
+        <thead>
+        <tr>
+            <th lay-data="{type:'checkbox',LAY_CHECKED:true}">数据表2</th>
+            <th lay-data="{field:'Name',width:200}">数据表</th>
+            <th lay-data="{field:'Rows',width:120, sort:true}">记录条数</th>
+            <th lay-data="{field:'Data_length',width:80, sort:true}">占用空间</th>
+            <th lay-data="{field:'Collation'}">编码</th>
+            <th lay-data="{field:'Create_time',width:180,sort:true}">创建时间</th>
+            <th lay-data="{field:'Action', width:180}">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {empty name="list"}
+        <tr>
+            <td class="no-data" align="center" axis="col0" colspan="50">
+                <i class="fa fa-exclamation-circle"></i>没有符合条件的记录
+            </td>
+        </tr>
+        {else/}
+        {foreach name="list" item="vo" key="k" }
+        <tr >
+            <td>{$vo.Name}</td>
+            <td>{$vo.Name}</td>
+            <td>{$vo.Rows}</td>
+            <td>{$vo.Data_length|format_bytes}</td>
+            <td>{$vo.Collation}</td>
+            <td>{$vo.Create_time}</td>
+            <td>
+                <button onclick="optimize('{$vo.Name}')" class="layui-btn layui-btn-success layui-btn-xs">优化</button>
+                <button  onclick="repair('{$vo.Name}')" class="layui-btn layui-btn-normal layui-btn-xs">修复</button>
+            </td>
+        </tr>
+        {/foreach}
+        {/empty}
+        </tbody>
+    </table>
+
+</div>
+</body>
+{include file="public/foot"}

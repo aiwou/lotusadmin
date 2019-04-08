@@ -196,6 +196,7 @@ xblock{
     padding: 10px;
     min-width: 15px;
     border: 1px solid #E2E2E2;
+    color:#cccccc;
 }
 .page span.current{
     display: inline-block;

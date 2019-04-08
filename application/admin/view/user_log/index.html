@@ -1,0 +1,49 @@
+{include file="public/head"}
+<body>
+<div class="x-body" >
+    <div class="lotus-nav layui-row ">
+        <span class="x-right" >数量:{$list->total()}
+                 <button onclick="javascript:location.reload()" class="layui-btn  layui-btn-xs">
+                    <i class="icon iconfont">&#xe6aa;</i>
+                </button>
+            </span>
+    </div>
+    <table class="layui-table"  lay-data="{id: 'test',limit:10}">
+        <thead>
+        <tr>
+            <th lay-data="{field:'name'}">事件</th>
+            <th lay-data="{field:'way'}">请求地址</th>
+            <th lay-data="{field:'username'}">用户名</th>
+            <th lay-data="{field:'ip'}">ip</th>
+            <th lay-data="{field:'create_time', sort:true}">时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {empty name="list"}
+        <tr>
+            <td class="no-data" align="center" axis="col0" colspan="50">
+                <i class="fa fa-exclamation-circle"></i>没有符合条件的记录
+            </td>
+        </tr>
+        {else/}
+        {foreach name="list" item="vo" key="k" }
+        <tr >
+            <td>{$vo.name}</td>
+            <td>{$vo.way}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.ip}</td>
+            <td>{$vo.create_time}</td>
+        </tr>
+        {/foreach}
+        {/empty}
+        </tbody>
+    </table>
+    <div class="page">
+        <div>
+            {$list->render()}
+        </div>
+    </div>
+
+</div>
+</body>
+{include file="public/foot"}
