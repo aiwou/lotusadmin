@@ -27,7 +27,7 @@ $(function () {
     }
 })
 
-setInterval(show_donation,10*60*1000);
+// setInterval(show_donation,10*60*1000);
 
 function show_donation(){
     storage['is_donation'] = 'off';

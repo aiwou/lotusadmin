@@ -259,6 +259,10 @@ INSERT INTO `lotus_auth_rule` VALUES ('225', 'admin/user/deleteUser', '删除用
 INSERT INTO `lotus_auth_rule` VALUES ('226', 'admin/auth/updateAuthGroupRule', '角色授权', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('227', 'admin/auth/editRole', '角色编辑', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('228', 'admin/auth/delRole', '删除角色', '1', '0', '4', '', '0', '');
+INSERT INTO `lotus_auth_rule` VALUES ('229', 'admin/user_log/index', '系统日志', '1', '1', '0', 'xe60a', '5', '');
+
+
+
 
 -- ----------------------------
 -- Table structure for lotus_category
@@ -431,3 +435,36 @@ CREATE TABLE `lotus_user` (
 -- Records of lotus_user
 -- ----------------------------
 INSERT INTO `lotus_user` VALUES ('107', 'demo', '121144d6c3114c583415f06860ad3710', '', 'whndeweilai@163.com', '1', '2018-12-02 02:14:51', null, '0.0.0.0');
+
+
+-- ----------------------------
+-- Table structure for lotus_user_log
+-- ----------------------------
+DROP TABLE IF EXISTS `lotus_user_log`;
+CREATE TABLE `lotus_user_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `way` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `descript` varchar(255) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `ip` varchar(150) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lotus_user_log
+-- ----------------------------
+INSERT INTO `lotus_user_log` VALUES ('13', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
+INSERT INTO `lotus_user_log` VALUES ('14', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
+INSERT INTO `lotus_user_log` VALUES ('15', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
+INSERT INTO `lotus_user_log` VALUES ('16', '登陆', 'POST/login', 'admin', null, '1554737327', '127.0.0.1', null, '1554737327');
+INSERT INTO `lotus_user_log` VALUES ('17', '登陆成功', 'POST/login', 'admin', null, '1554737967', '127.0.0.1', null, '1554737967');
+INSERT INTO `lotus_user_log` VALUES ('18', '登陆成功', 'admin/user/login', 'admin', null, '1554738097', '127.0.0.1', null, '1554738097');
+INSERT INTO `lotus_user_log` VALUES ('19', '登陆成功', 'admin/user/login', 'admin', null, '1554738193', '127.0.0.1', null, '1554738193');
+INSERT INTO `lotus_user_log` VALUES ('20', '登陆成功', 'admin/user/login', 'admin', null, '1554738552', '127.0.0.1', null, '1554738552');
+INSERT INTO `lotus_user_log` VALUES ('21', '登陆成功', 'admin/user/login', 'admin', null, '1554738581', '127.0.0.1', null, '1554738581');
+INSERT INTO `lotus_user_log` VALUES ('22', '登陆成功', 'admin/user/login', 'admin', null, '1554738613', '127.0.0.1', null, '1554738613');
+INSERT INTO `lotus_user_log` VALUES ('23', '登陆成功', 'admin/user/login', 'admin', null, '1554738623', '127.0.0.1', null, '1554738623');
