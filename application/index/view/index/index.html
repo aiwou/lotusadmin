@@ -31,11 +31,15 @@
             </a>
         </li>
 
-        
-
 
         <li>
             <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=dd7e59449f559df91ebf5241f392715a2279fe7fadd282315b2cbc80649cb1ab">加入QQ群</a>
+        </li>
+
+        <li>
+            <a href="http://www.waytomilky.com" target="_blank">
+                下载量98
+            </a>
         </li>
 
     </ul>
@@ -43,21 +47,17 @@
 <div class="swiper-container swiper-container-vertical">
     <div class="swiper-wrapper">
 
-        <div class="swiper-slide page1" style="height: 959px; margin-bottom: 30px;background-color: #009f95">
+        <div class="swiper-slide page1" style="height: 959px; margin-bottom: 30px; background-image: url('https://ws2.sinaimg.cn/large/005IXWDbly1fz9ydtuz41j311y0pbn67.jpg');">
             <div class="text">
                     <a class="download" href="javascript:show_tip()"></a>
             </div>
         </div>
-        
-        <div class="swiper-slide page3" style="width:100%;height: 959px; margin-bottom: 30px;background-color:black;">
+
+
+        <div class="swiper-slide page3" style="width:100%;height: 959px; margin-bottom: 30px;">
             <div class="mb" >
             </div>       
         </div>
-
-      <!--   <div class="swiper-slide page2" style="width:100%;height: 959px; margin-bottom: 30px;background-color:green;">
-            <div class="code" style="background-image:url(/public/static/images/code.gif)" >
-            </div>       
-        </div> -->
 
        
    
@@ -122,21 +122,17 @@
 
     
     function show_tip(){
-       var index1 =  layer.confirm('本产品完全免费使用<br>*下载后请用户老爷star一下,谢谢支持<br>如需订制后台请联系<strong style=color:red>开发者QQ: 610176732</strong><br> (请勿上传到资源类网站进行出售,我很不喜欢!)<br>' +
-           '<img height="400px" src="__static__/images/wechat.jpg">',
-            {title:'请作者喝咖啡吧',
-            btn:['加入qq群下载吧','预览']
-            ,closeBtn: 0
+       var index1 =  layer.confirm('1.本产品个人学习免费,商业项目收费99元,付费用户提供技术支持<br>2.下载后请用户老爷码云star一下,谢谢支持<br>3.如需订制后台请联系<strong style=color:cornflowerblue>开发者QQ: 610176732</strong><br> 4.请勿上传到资源类网站进行出售,我很不喜欢!<br>5.如想请作者喝咖啡,请扫描下图微信二维码' +
+           '<img height="200px" style="margin-left: 60px;" src="__static__/images/wechat-sm.png">',
+            {
+                title:'声明',
+                btn:['加群获取源码','预览'],
+                closeBtn:0
             },
 
             function(){
                     window.open("//shang.qq.com/wpa/qunwpa?idkey=dd7e59449f559df91ebf5241f392715a2279fe7fadd282315b2cbc80649cb1ab");   
                 },
-                // function(){
-                //     // layer.msg('跳转仓库下载页中~~~',{offset:'t',icon:1},function(){
-                //     //      window.open.href = '//shang.qq.com/wpa/qunwpa?idkey=dd7e59449f559df91ebf5241f392715a2279fe7fadd282315b2cbc80649cb1ab';
-                //     // });
-                // },
                 function(){
                     window.open("https://www.lotusadmin.top/admin/index/index.html");   
                 }
