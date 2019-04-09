@@ -259,6 +259,10 @@ INSERT INTO `lotus_auth_rule` VALUES ('225', 'admin/user/deleteUser', '删除用
 INSERT INTO `lotus_auth_rule` VALUES ('226', 'admin/auth/updateAuthGroupRule', '角色授权', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('227', 'admin/auth/editRole', '角色编辑', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('228', 'admin/auth/delRole', '删除角色', '1', '0', '4', '', '0', '');
+INSERT INTO `lotus_auth_rule` VALUES ('229', 'admin/user_log/index', '系统日志', '1', '1', '0', 'xe60a', '0', '');
+
+
+
 
 -- ----------------------------
 -- Table structure for lotus_category
