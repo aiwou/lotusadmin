@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Db;
 use think\Request;
+use think\Cache;
 
 class Index extends Base{
 
@@ -30,9 +31,13 @@ class Index extends Base{
     }
 
     public function  view_count(){
-        Db::name('system')
-            ->where('name','view_count')
-            ->setInc('value');
+        $ip = $this->request->ip();
+        if(empty( session('ip') )  ){
+            Db::name('system')
+                ->where('name','view_count')
+                ->setInc('value');
+        }
+        session('ip',$ip);
     }
 
     public function  download_count(){
