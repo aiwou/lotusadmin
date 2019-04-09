@@ -13,11 +13,6 @@
             </a>
         </li>
 
-        <li>
-            <a target="_target" href="admin/user/index" >
-                演示地址
-            </a>
-        </li>
 
         <li>
             <a href="https://www.kancloud.cn/summer_bloom/lotus_admin/470128" target="_blank">
@@ -37,8 +32,14 @@
         </li>
 
         <li>
-            <a href="http://www.waytomilky.com" target="_blank">
-                下载量98
+            <a href="javascript:layer.msg('欢迎莅临小站',{offset:'t'})">
+                访问量{$view_count}
+            </a>
+        </li>
+
+        <li>
+            <a href="javascript:layer.msg('欢迎莅临小站',{offset:'t'})">
+                下载量{$download_count}
             </a>
         </li>
 
@@ -96,6 +97,7 @@
 {block name='script'}
 <script src="__module__/layer/layer.js"></script>
 <script type="text/javascript">
+    view_count();
     $(function(){
             // layer.open({
             //   type: 1,
@@ -117,6 +119,7 @@
                 effect:'coverflow',
                 autoplay: 10000
             });
+
     })
  
 
@@ -131,6 +134,7 @@
             },
 
             function(){
+                    download_count();
                     window.open("//shang.qq.com/wpa/qunwpa?idkey=dd7e59449f559df91ebf5241f392715a2279fe7fadd282315b2cbc80649cb1ab");   
                 },
                 function(){
@@ -139,6 +143,30 @@
             );
     }
 
+
+    function view_count(){
+        $.ajax({
+                url: "{:url('index/index/view_count')}",
+                type: 'get',
+                dataType: 'json',
+                data: {},
+              })
+              .done(function() {
+                console.log("success");
+              })
+    }
+
+    function download_count(){
+        $.ajax({
+            url: "{:url('index/index/download_count')}",
+            type: 'get',
+            dataType: 'json',
+            data: {},
+        })
+            .done(function() {
+                console.log("success");
+            })
+    }
     
 
 </script>

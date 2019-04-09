@@ -412,6 +412,9 @@ CREATE TABLE `lotus_system` (
 -- Records of lotus_system
 -- ----------------------------
 INSERT INTO `lotus_system` VALUES ('1', 'site_config', 'a:7:{s:10:\"site_title\";s:30:\"Think Admin 后台管理系统\";s:9:\"seo_title\";s:0:\"\";s:11:\"seo_keyword\";s:0:\"\";s:15:\"seo_description\";s:0:\"\";s:14:\"site_copyright\";s:0:\"\";s:8:\"site_icp\";s:0:\"\";s:11:\"site_tongji\";s:0:\"\";}');
+INSERT INTO `lotus_system` (`id`, `name`, `value`) VALUES ('2', 'view_count', '2');
+INSERT INTO `lotus_system` (`id`, `name`, `value`) VALUES ('3', 'download_count', '3');
+
 
 -- ----------------------------
 -- Table structure for lotus_user
