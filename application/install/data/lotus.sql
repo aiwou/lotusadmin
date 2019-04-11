@@ -159,7 +159,7 @@ INSERT INTO `lotus_auth_rule` VALUES ('2', 'admin/user/userlist', '用户管理'
 INSERT INTO `lotus_auth_rule` VALUES ('3', 'admin/auth/index', '权限管理', '1', '1', '1', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('4', 'admin/auth/role', '角色管理', '1', '1', '1', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('8', 'admin/api/app_list', '接口仓库', '1', '1', '7', '', '0', '');
-INSERT INTO `lotus_auth_rule` VALUES ('5', 'admin/DbManage/default', '数据库', '1', '1', '0', 'xe631', '201', '');
+INSERT INTO `lotus_auth_rule` VALUES ('5', 'admin/DbManage/default', '数据库', '1', '1', '0', 'xe635', '201', '');
 INSERT INTO `lotus_auth_rule` VALUES ('6', 'admin/DbManage/index', '备份', '1', '1', '5', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', 'xe857', '3', '');
 INSERT INTO `lotus_auth_rule` VALUES ('202', 'admin/file_system/index', '文件管理', '1', '1', '0', 'xe61d', '200', '');
