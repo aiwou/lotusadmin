@@ -131,91 +131,7 @@ CREATE TABLE `lotus_auth_group_access` (
   KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='权限组规则表';
 
--- ----------------------------
--- Records of lotus_auth_group_access
--- ----------------------------
-INSERT INTO `lotus_auth_group_access` VALUES ('1', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('27', '2');
-INSERT INTO `lotus_auth_group_access` VALUES ('28', '2');
-INSERT INTO `lotus_auth_group_access` VALUES ('29', '50');
-INSERT INTO `lotus_auth_group_access` VALUES ('30', '52');
-INSERT INTO `lotus_auth_group_access` VALUES ('31', '54');
-INSERT INTO `lotus_auth_group_access` VALUES ('32', '2');
-INSERT INTO `lotus_auth_group_access` VALUES ('33', '64');
-INSERT INTO `lotus_auth_group_access` VALUES ('34', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('35', '52');
-INSERT INTO `lotus_auth_group_access` VALUES ('36', '35');
-INSERT INTO `lotus_auth_group_access` VALUES ('37', '52');
-INSERT INTO `lotus_auth_group_access` VALUES ('38', '65');
-INSERT INTO `lotus_auth_group_access` VALUES ('39', '59');
-INSERT INTO `lotus_auth_group_access` VALUES ('40', '69');
-INSERT INTO `lotus_auth_group_access` VALUES ('41', '69');
-INSERT INTO `lotus_auth_group_access` VALUES ('42', '69');
-INSERT INTO `lotus_auth_group_access` VALUES ('43', '61');
-INSERT INTO `lotus_auth_group_access` VALUES ('44', '62');
-INSERT INTO `lotus_auth_group_access` VALUES ('45', '64');
-INSERT INTO `lotus_auth_group_access` VALUES ('46', '69');
-INSERT INTO `lotus_auth_group_access` VALUES ('47', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('48', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('49', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('50', '69');
-INSERT INTO `lotus_auth_group_access` VALUES ('51', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('52', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('53', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('54', '70');
-INSERT INTO `lotus_auth_group_access` VALUES ('55', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('56', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('57', '72');
-INSERT INTO `lotus_auth_group_access` VALUES ('58', '72');
-INSERT INTO `lotus_auth_group_access` VALUES ('59', '72');
-INSERT INTO `lotus_auth_group_access` VALUES ('60', '72');
-INSERT INTO `lotus_auth_group_access` VALUES ('61', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('62', '78');
-INSERT INTO `lotus_auth_group_access` VALUES ('63', '78');
-INSERT INTO `lotus_auth_group_access` VALUES ('64', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('65', '117');
-INSERT INTO `lotus_auth_group_access` VALUES ('66', '90');
-INSERT INTO `lotus_auth_group_access` VALUES ('67', '90');
-INSERT INTO `lotus_auth_group_access` VALUES ('68', '102');
-INSERT INTO `lotus_auth_group_access` VALUES ('69', '102');
-INSERT INTO `lotus_auth_group_access` VALUES ('70', '102');
-INSERT INTO `lotus_auth_group_access` VALUES ('71', '106');
-INSERT INTO `lotus_auth_group_access` VALUES ('72', '106');
-INSERT INTO `lotus_auth_group_access` VALUES ('73', '112');
-INSERT INTO `lotus_auth_group_access` VALUES ('74', '111');
-INSERT INTO `lotus_auth_group_access` VALUES ('75', '78');
-INSERT INTO `lotus_auth_group_access` VALUES ('76', '126');
-INSERT INTO `lotus_auth_group_access` VALUES ('77', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('78', '123');
-INSERT INTO `lotus_auth_group_access` VALUES ('79', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('80', '123');
-INSERT INTO `lotus_auth_group_access` VALUES ('81', '129');
-INSERT INTO `lotus_auth_group_access` VALUES ('82', '135');
-INSERT INTO `lotus_auth_group_access` VALUES ('83', '129');
-INSERT INTO `lotus_auth_group_access` VALUES ('84', '138');
-INSERT INTO `lotus_auth_group_access` VALUES ('85', '137');
-INSERT INTO `lotus_auth_group_access` VALUES ('86', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('87', '138');
-INSERT INTO `lotus_auth_group_access` VALUES ('88', '138');
-INSERT INTO `lotus_auth_group_access` VALUES ('89', '138');
-INSERT INTO `lotus_auth_group_access` VALUES ('90', '138');
-INSERT INTO `lotus_auth_group_access` VALUES ('91', '117');
-INSERT INTO `lotus_auth_group_access` VALUES ('92', '156');
-INSERT INTO `lotus_auth_group_access` VALUES ('93', '156');
-INSERT INTO `lotus_auth_group_access` VALUES ('94', '163');
-INSERT INTO `lotus_auth_group_access` VALUES ('95', '164');
-INSERT INTO `lotus_auth_group_access` VALUES ('96', '145');
-INSERT INTO `lotus_auth_group_access` VALUES ('97', '172');
-INSERT INTO `lotus_auth_group_access` VALUES ('98', '175');
-INSERT INTO `lotus_auth_group_access` VALUES ('99', '1');
-INSERT INTO `lotus_auth_group_access` VALUES ('100', '173');
-INSERT INTO `lotus_auth_group_access` VALUES ('101', '180');
-INSERT INTO `lotus_auth_group_access` VALUES ('102', '181');
-INSERT INTO `lotus_auth_group_access` VALUES ('103', '185');
-INSERT INTO `lotus_auth_group_access` VALUES ('104', '187');
-INSERT INTO `lotus_auth_group_access` VALUES ('105', '187');
-INSERT INTO `lotus_auth_group_access` VALUES ('106', '187');
-INSERT INTO `lotus_auth_group_access` VALUES ('107', '1');
+
 
 -- ----------------------------
 -- Table structure for lotus_auth_rule
@@ -247,8 +163,6 @@ INSERT INTO `lotus_auth_rule` VALUES ('5', 'admin/DbManage/default', '数据库'
 INSERT INTO `lotus_auth_rule` VALUES ('6', 'admin/DbManage/index', '备份', '1', '1', '5', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('7', 'admin/api/default', '接口管理', '1', '1', '0', 'xe857', '3', '');
 INSERT INTO `lotus_auth_rule` VALUES ('202', 'admin/file_system/index', '文件管理', '1', '1', '0', 'xe61d', '200', '');
-INSERT INTO `lotus_auth_rule` VALUES ('203', 'sadasd', '一级菜单', '1', '1', '0', 'xe609', '5', '');
-INSERT INTO `lotus_auth_rule` VALUES ('209', 'jhgjhghj', '二级', '1', '1', '203', 'xe660', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('219', 'admin/auth/addRole', '新增角色', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('220', 'admin/auth/add', '新增权限', '1', '0', '3', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('221', 'admin/auth/edit', '编辑权限', '1', '0', '3', '', '0', '');
@@ -259,7 +173,7 @@ INSERT INTO `lotus_auth_rule` VALUES ('225', 'admin/user/deleteUser', '删除用
 INSERT INTO `lotus_auth_rule` VALUES ('226', 'admin/auth/updateAuthGroupRule', '角色授权', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('227', 'admin/auth/editRole', '角色编辑', '1', '0', '4', '', '0', '');
 INSERT INTO `lotus_auth_rule` VALUES ('228', 'admin/auth/delRole', '删除角色', '1', '0', '4', '', '0', '');
-INSERT INTO `lotus_auth_rule` VALUES ('229', 'admin/user_log/index', '系统日志', '1', '1', '0', 'xe60a', '5', '');
+INSERT INTO `lotus_auth_rule` VALUES ('229', 'admin/user_log/index', '系统日志', '1', '1', '0', 'xe60e', '5', '');
 
 
 
@@ -304,9 +218,7 @@ CREATE TABLE `lotus_file` (
 -- ----------------------------
 -- Records of lotus_file
 -- ----------------------------
-INSERT INTO `lotus_file` VALUES ('82', '\\public\\uploads\\20181108\\01e8d6bb590532f8c36a8c3d7c85eb8f.jpg', '241k');
-INSERT INTO `lotus_file` VALUES ('83', '\\public\\uploads\\20181108\\d475149f27b1e15c3734b61ada8aa0bc.jpg', '396k');
-INSERT INTO `lotus_file` VALUES ('84', '\\public\\uploads\\20181129\\7745df1a4c12880795cf87dcfc82c0dd.jpg', '159k');
+
 
 -- ----------------------------
 -- Table structure for lotus_link
