@@ -349,7 +349,7 @@ CREATE TABLE `lotus_user` (
 -- ----------------------------
 -- Records of lotus_user
 -- ----------------------------
-INSERT INTO `lotus_user` VALUES ('107', 'demo', '121144d6c3114c583415f06860ad3710', '', 'whndeweilai@163.com', '1', '2018-12-02 02:14:51', null, '0.0.0.0');
+INSERT INTO `lotus_user` VALUES ('107', 'demo', 'e10adc3949ba59abbe56e057f20f883e', '', 'whndeweilai@163.com', '1', '2018-12-02 02:14:51', null, '0.0.0.0');
 
 
 -- ----------------------------
@@ -373,13 +373,3 @@ CREATE TABLE `lotus_user_log` (
 -- Records of lotus_user_log
 -- ----------------------------
 INSERT INTO `lotus_user_log` VALUES ('13', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
-INSERT INTO `lotus_user_log` VALUES ('14', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
-INSERT INTO `lotus_user_log` VALUES ('15', '成功登陆', 'Login/login', 'admin', null, '2017', '127.0.0.1', null, null);
-INSERT INTO `lotus_user_log` VALUES ('16', '登陆', 'POST/login', 'admin', null, '1554737327', '127.0.0.1', null, '1554737327');
-INSERT INTO `lotus_user_log` VALUES ('17', '登陆成功', 'POST/login', 'admin', null, '1554737967', '127.0.0.1', null, '1554737967');
-INSERT INTO `lotus_user_log` VALUES ('18', '登陆成功', 'admin/user/login', 'admin', null, '1554738097', '127.0.0.1', null, '1554738097');
-INSERT INTO `lotus_user_log` VALUES ('19', '登陆成功', 'admin/user/login', 'admin', null, '1554738193', '127.0.0.1', null, '1554738193');
-INSERT INTO `lotus_user_log` VALUES ('20', '登陆成功', 'admin/user/login', 'admin', null, '1554738552', '127.0.0.1', null, '1554738552');
-INSERT INTO `lotus_user_log` VALUES ('21', '登陆成功', 'admin/user/login', 'admin', null, '1554738581', '127.0.0.1', null, '1554738581');
-INSERT INTO `lotus_user_log` VALUES ('22', '登陆成功', 'admin/user/login', 'admin', null, '1554738613', '127.0.0.1', null, '1554738613');
-INSERT INTO `lotus_user_log` VALUES ('23', '登陆成功', 'admin/user/login', 'admin', null, '1554738623', '127.0.0.1', null, '1554738623');
