@@ -129,13 +129,16 @@
            '<img height="300px" style="margin-left: 0px;" src="__static__/images/wechat-sm.png">',
             {
                 title:'声明',
-                btn:['加群获取源码','预览'],
+                btn:['仓库下载源码','演示'],
                 closeBtn:0
             },
 
             function(){
                     download_count();
-                    window.open("//shang.qq.com/wpa/qunwpa?idkey=dd7e59449f559df91ebf5241f392715a2279fe7fadd282315b2cbc80649cb1ab");   
+                    layer.msg('给颗星支持下项目吧,跳转仓库中...',{icon:1},function () {
+                        window.open("https://gitee.com/wenhainan/LotusAdmin");
+                    });
+
                 },
                 function(){
                     window.open("https://www.lotusadmin.top/admin/index/index.html");   
